@@ -1,39 +1,67 @@
 package com.example.testeemjava;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+
+import com.example.testeemjava.fragments.Home;
+import com.example.testeemjava.fragments.Menu;
+import com.example.testeemjava.fragments.Search;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
-    private RecyclerView recyclerView;
-    private List<Animal> animalList = null;
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+
+    private BottomNavigationView bottomNavigationView;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        inputList();
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+       bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
-        recyclerView = findViewById(R.id.recyclerView);
+        showFragment(new Home());
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
-        recyclerView.setLayoutManager(gridLayoutManager);
-        Adapter adapter = new Adapter(animalList);
-        recyclerView.setAdapter(adapter);
+
+
 
     }
 
-    private void inputList() {
-        if(animalList == null){
-            animalList = new ArrayList<Animal>();
-            animalList.add(new Animal("Astolfo", R.drawable.beagle));
-            animalList.add(new Animal("Mel", R.drawable.dog_grande));
-            animalList.add(new Animal("Caixinha", R.drawable.doguineo));
+    public void showFragment(Fragment fragment){
+        getSupportFragmentManager ()
+                .beginTransaction ()
+                .replace (R.id.frame_layout_home, fragment)
+                .commit ();
+    }
+
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        switch(menuItem.getItemId()){
+
+            case(R.id.ic_home):
+                showFragment(new Home());
+                break;
+
+            case(R.id.ic_search):
+                showFragment(new Search());
+                break;
+
+            case(R.id.ic_menu):
+                showFragment(new Menu());
+                break;
+
+
         }
+        return true;
     }
-
 }
