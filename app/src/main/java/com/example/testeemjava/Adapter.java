@@ -16,7 +16,6 @@ import java.util.List;
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
     private List<Animal> animals;
-    private Context context;
     public Adapter(List<Animal> animals) {
         this.animals = animals;
     }
