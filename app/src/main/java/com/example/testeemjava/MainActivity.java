@@ -31,9 +31,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         showFragment(new Home());
 
-
-
-
     }
 
     public void showFragment(Fragment fragment){
