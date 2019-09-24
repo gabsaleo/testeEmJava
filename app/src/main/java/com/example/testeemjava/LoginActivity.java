@@ -65,7 +65,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void loginUsuario(){
-        User user = new User(editName.getText().toString(), editSenha.getText().toString());
+        final User user = new User(editName.getText().toString(), editSenha.getText().toString());
         LoginServices services = new RetrofitClient().getRetrofit();
         Call<User> login = services.loginUser(user);
         login.enqueue(new Callback<User>() {
@@ -75,6 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                     Log.i("deu bom", "200");
                     Toast.makeText(LoginActivity.this, "uhuuuu", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.putExtra("user", user);
                     startActivity(intent);
                     finish();
                 }

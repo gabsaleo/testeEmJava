@@ -2,9 +2,10 @@ package com.example.testeemjava;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class User {
+public class User implements Serializable {
 
     @SerializedName("id")
     private long id;
@@ -54,7 +55,11 @@ public class User {
         return password;
     }
 
-    public User( String name, String email, String password) {
+    public User() {
+
+    }
+
+    public User(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
