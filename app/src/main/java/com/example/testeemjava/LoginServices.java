@@ -12,12 +12,15 @@ import retrofit2.http.Path;
 
 public interface LoginServices {
 
-    @GET("users")
-    Call<List<User>> getUsers();
+//    @GET("users")
+//    Call<List<User>> getUsers();
 
 
     @POST("users")
-    Call<User> cadastrarUser(@Body User user);
+    Call<Void> cadastrarUser(@Body User user);
+
+    @POST("users/login")
+    Call<User> loginUser(@Body User user);
 
 
 

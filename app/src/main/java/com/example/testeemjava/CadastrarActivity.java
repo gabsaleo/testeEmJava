@@ -2,6 +2,7 @@ package com.example.testeemjava;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -42,22 +43,28 @@ public class CadastrarActivity extends AppCompatActivity {
     }
 
     private void cadastrar() {
-
+        
+        User user = new User(editNome.getText().toString(),
+                editEmail.getText().toString(), editSenha.getText().toString());
         LoginServices services = new RetrofitClient().getRetrofit();
-        Call<User> cadastrar = services.cadastrarUser(new User(editNome.getText().toString(), editEmail.getText().toString(),
-                                                        editSenha.getText().toString()));
-        cadastrar.enqueue(new Callback<User>() {
+        Call<Void> cadastrar = services.cadastrarUser(user);
+        cadastrar.enqueue(new Callback<Void>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
-                Toast.makeText(CadastrarActivity.this, "foi caralho", Toast.LENGTH_LONG).show();
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if(response.code() == 200) {
+                    Log.i("deu certo", "200");
+                    Toast.makeText(CadastrarActivity.this, "usuario cadastrado com sucesso", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(CadastrarActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+                }
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<Void> call, Throwable t) {
 
             }
         });
-
 
 
     }
