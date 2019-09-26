@@ -1,59 +1,81 @@
 package com.example.testeemjava.fragments;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.RequestQueue;
 import com.example.testeemjava.Adapter;
-import com.example.testeemjava.Animal;
+import com.example.testeemjava.LoginServices;
+import com.example.testeemjava.RetrofitClient;
 import com.example.testeemjava.R;
+import com.example.testeemjava.modelos.Animal;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
 public class Home extends Fragment {
 
-    private List<Animal> animalList;
+    private List<Animal> animalList = new ArrayList<>();
+    private Adapter adapter;
+    private RequestQueue requestQueue;
     private View view;
+    public Animal animal;
     private RecyclerView recyclerView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home, container, false);
-        loadUI();
-        inputList();
-        configAdapter();
 
+        recyclerView = view.findViewById(R.id.recyclerView);
+
+        getAnimals();
         return view;
 
     }
 
-    private void inputList() {
+    private void getAnimals() {
+        LoginServices services = new RetrofitClient().getRetrofit();
+        services.getAnimals().enqueue(new Callback<List<Animal>>() {
+            @Override
+            public void onResponse(Call<List<Animal>> call, Response<List<Animal>> response) {
 
-        if(animalList == null){
-            animalList = new ArrayList<Animal>();
-            animalList.add(new Animal("Astolfo", R.drawable.beagle));
-            animalList.add(new Animal("Mel", R.drawable.dog_grande));
-            animalList.add(new Animal("Caixinha", R.drawable.doguineo));
-        }
+                animalList = response.body();
+                for (Animal a : animalList){
+                    Log.d("uhu", a.urlImage);
+                }
+                configAdapter();
+
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Animal>> call, Throwable t) {
+
+            }
+
+        });
+
+
     }
-    private void loadUI(){
-        recyclerView = view.findViewById(R.id.recyclerView);
-    }
-    private void configAdapter(){
-        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(layoutManager);
-        recyclerView.setHasFixedSize(true);
-        Adapter adapter = new Adapter(animalList);
-        recyclerView.setAdapter(adapter);
+
+    public void configAdapter(){
+    adapter = new Adapter(getContext(), animalList);
+    recyclerView.setHasFixedSize(true);
+    recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+    recyclerView.setAdapter(adapter);
+
+
     }
 }

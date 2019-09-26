@@ -11,14 +11,22 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.testeemjava.modelos.Animal;
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
+    private Context context;
     private List<Animal> animals;
-    public Adapter(List<Animal> animals) {
+
+    public Adapter(Context context, List<Animal> animals) {
+        this.context = context;
         this.animals = animals;
     }
+
+
 
     @NonNull
     @Override
@@ -30,8 +38,14 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
     @Override
     public void onBindViewHolder(@NonNull Adapter.ViewHolder holder, int position) {
         Animal animal = animals.get(position);
-        holder.texto.setText(animal.getNome());
-        holder.imagem.setImageResource(animal.getIdAnimal());
+
+        String imageUrl = animal.urlImage;
+        String name = animal.name;
+        holder.texto.setText(name);
+
+        Picasso.get().load(imageUrl).fit().into(holder.imagem);
+
+
 
     }
 
@@ -51,13 +65,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
             texto = itemView.findViewById(R.id.title);
             imagem = itemView.findViewById(R.id.image);
 
-            imagem.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    String nomeCachorro = texto.getText().toString();
-                    Toast.makeText(itemView.getContext(), "Clicou em " + nomeCachorro, Toast.LENGTH_SHORT).show();
-                }
-            });
+//            imagem.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    String nomeCachorro = texto.getText().toString();
+//                    Toast.makeText(itemView.getContext(), "Clicou em " + nomeCachorro, Toast.LENGTH_SHORT).show();
+//                }
+//            });
         }
     }
 }

@@ -30,10 +30,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         setContentView(R.layout.activity_main);
         bottomNavigationView = findViewById(R.id.bottom_navigation);
        bottomNavigationView.setOnNavigationItemSelectedListener(this);
-        Intent i = getIntent();
-
-        User user  = (User) i.getSerializableExtra("user");
-        Log.d("user", "nome" + user.getName());
         showFragment(new Home());
 
     }

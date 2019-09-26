@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import java.util.List;
+import com.example.testeemjava.model.User;
 
 import retrofit2.Call;
 import retrofit2.Callback;

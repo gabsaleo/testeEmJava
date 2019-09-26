@@ -10,12 +10,10 @@ import android.widget.TextView;
 import androidx.fragment.app.Fragment;
 
 import com.example.testeemjava.R;
-import com.example.testeemjava.User;
 
 public class Menu extends Fragment {
 
     private View view;
-    private User user = new User();
     private TextView textViewNome, textEmail;
     private Button botaoSair;
     @Override
@@ -25,7 +23,6 @@ public class Menu extends Fragment {
         textViewNome =   view.findViewById(R.id.textNome);
         textEmail = view.findViewById(R.id.textEmail);
         botaoSair = view.findViewById(R.id.botaoSair);
-
 
 
 

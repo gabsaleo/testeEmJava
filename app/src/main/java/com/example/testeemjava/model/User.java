@@ -1,4 +1,4 @@
-package com.example.testeemjava;
+package com.example.testeemjava.model;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -19,7 +19,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "Animal{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +

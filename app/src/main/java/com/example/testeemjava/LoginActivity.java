@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.testeemjava.fragments.Home;
+import com.example.testeemjava.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -95,14 +95,14 @@ public class LoginActivity extends AppCompatActivity {
 //
 //
 //       LoginServices services = new RetrofitClient().getRetrofit();
-//       Call<List<User>> login = services.getUsers();
-//        login.enqueue(new Callback<List<User>>() {
+//       Call<List<Animal>> login = services.getUsers();
+//        login.enqueue(new Callback<List<Animal>>() {
 //            @Override
-//            public void onResponse(Call<List<User>> call, Response<List<User>> response) {
+//            public void onResponse(Call<List<Animal>> call, Response<List<Animal>> response) {
 //                try{
 //                    users = response.body();
 //
-//                    for(User u : users){
+//                    for(Animal u : users){
 //                        if(editName.getText().toString().equals(u.getEmail()) && editSenha.getText().toString().equals(u.getPassword())){
 //                            Toast.makeText(LoginActivity.this, "entrou", Toast.LENGTH_SHORT).show();
 //                        }else{
@@ -118,7 +118,7 @@ public class LoginActivity extends AppCompatActivity {
 //            }
 //
 //            @Override
-//            public void onFailure(Call<List<User>> call, Throwable t) {
+//            public void onFailure(Call<List<Animal>> call, Throwable t) {
 //
 //            }
 //        });
