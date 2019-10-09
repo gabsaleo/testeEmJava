@@ -1,6 +1,7 @@
 package com.example.testeemjava.fragments;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import com.example.testeemjava.R;
 
 public class AddPet extends Fragment {
+    boolean txt = false;
     private View view;
     private EditText editRaca, editCorPet, editNamePet, editIdade, editDescricaoPet, editSanguineo,
             editURL;
@@ -29,18 +31,40 @@ public class AddPet extends Fragment {
         view = inflater.inflate(R.layout.fragment_add_pet, container, false);
         loadUI();
 
+
         checkPossuiDoenca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Escolheu o " +checkPossuiDoenca.getText(), Toast.LENGTH_SHORT).show();
+                if(checkPossuiDoenca.isChecked()){
+                    Toast.makeText(getContext(), "Escolheu o " +checkPossuiDoenca.getText(), Toast.LENGTH_SHORT).show();
+                    txt = true;
+                    Log.d("foi", "true");
+
+                }else{
+                    Toast.makeText(getContext(), "Deselecionado " +checkPossuiDoenca.getText(), Toast.LENGTH_SHORT).show();
+                    txt = false;
+                    Log.d("foi", "false");
+                }
+
+
             }
         });
+
         checkVacinado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "Escolheu o " + checkVacinado.getText(), Toast.LENGTH_SHORT).show();
+                if(checkVacinado.isChecked()){
+                    Toast.makeText(getContext(), "Escolheu o " +checkVacinado.getText(), Toast.LENGTH_SHORT).show();
+                    txt = true;
+                    Log.d("foi", "true");
+                }else{
+                    Toast.makeText(getContext(), "Deselecionado" +checkVacinado.getText(), Toast.LENGTH_SHORT).show();
+                    txt = false;
+                    Log.d("foi", "false");
+                }
             }
         });
+
 
         return view;
 
