@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.example.testeemjava.fragments.AddPet;
 import com.example.testeemjava.fragments.Home;
 import com.example.testeemjava.fragments.Menu;
 import com.example.testeemjava.fragments.Search;
@@ -48,6 +49,9 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
             case(R.id.ic_home):
                 showFragment(new Home());
+                break;
+            case(R.id.ic_add_pet):
+                showFragment(new AddPet());
                 break;
 
             case(R.id.ic_search):

@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.testeemjava.model.Address;
 import com.example.testeemjava.model.User;
 
 import retrofit2.Call;
@@ -19,6 +20,7 @@ import retrofit2.Response;
 public class CadastrarActivity extends AppCompatActivity {
 
     EditText editNome, editEmail, editSenha;
+    EditText editCidade, editPais, editRua, editNro, editEstado, editLogradouro, editBairro;
     Button button;
 
     @Override
@@ -29,7 +31,17 @@ public class CadastrarActivity extends AppCompatActivity {
         editNome = findViewById(R.id.editNome);
         editEmail = findViewById(R.id.editEmail);
         editSenha = findViewById(R.id.editSenha);
-        button= findViewById(R.id.button2);
+
+        editRua = findViewById(R.id.editRua);
+        editNro = findViewById(R.id.editNroCasa);
+        editCidade = findViewById(R.id.editCidade);
+        editEstado = findViewById(R.id.editEstado);
+        editPais = findViewById(R.id.editPais);
+        editLogradouro = findViewById(R.id.editLogradouro);
+        editBairro = findViewById(R.id.editBairro);
+
+
+        button= findViewById(R.id.botaoCadastrar);
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,9 +55,17 @@ public class CadastrarActivity extends AppCompatActivity {
     }
 
     private void cadastrar() {
-        
+//        Address adresss = new Address();
+
         User user = new User(editNome.getText().toString(),
-                editEmail.getText().toString(), editSenha.getText().toString());
+                editEmail.getText().toString(), editSenha.getText().toString(),
+
+                new Address(editRua.getText().toString(), editNro.getText().toString(),
+                        editCidade.getText().toString(), editEstado.getText().toString(),
+                        editPais.getText().toString(), editLogradouro.getText().toString(), editBairro.getText().toString()));
+        Log.d("pegou", user.toString());
+        Log.d("id", String.valueOf(user.getId()));
+
         LoginServices services = new RetrofitClient().getRetrofit();
         Call<Void> cadastrar = services.cadastrarUser(user);
         cadastrar.enqueue(new Callback<Void>() {

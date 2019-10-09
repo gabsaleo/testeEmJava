@@ -3,12 +3,12 @@ package com.example.testeemjava.model;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
-import java.util.List;
+
 
 public class User implements Serializable {
 
     @SerializedName("id")
-    private long id;
+    private int id;
     @SerializedName("name")
     private String name;
     @SerializedName("email")
@@ -16,18 +16,21 @@ public class User implements Serializable {
     @SerializedName("password")
     private String password;
 
+    private Address address;
+
 
     @Override
     public String toString() {
-        return "Animal{" +
+        return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", address=" + address +
                 '}';
     }
 
-    public long getId() {
+    public int getId() {
         return id;
     }
 
@@ -55,14 +58,19 @@ public class User implements Serializable {
         return password;
     }
 
-    public User() {
-
+    public Address getAdress() {
+        return this.address;
     }
 
-    public User(String name, String email, String password) {
+    public void setAdress(Address adress) {
+        this.address = adress;
+    }
+
+    public User(String name, String email, String password, Address address) {
         this.name = name;
         this.email = email;
         this.password = password;
+        this.address = address;
     }
 
     public User(String email, String password) {

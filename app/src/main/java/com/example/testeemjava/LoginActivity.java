@@ -83,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<User> call, Throwable t) {
+                Toast.makeText(LoginActivity.this, "Algo deu errado", Toast.LENGTH_SHORT).show();
                 t.getMessage();
             }
         });
