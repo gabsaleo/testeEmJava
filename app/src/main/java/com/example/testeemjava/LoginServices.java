@@ -2,6 +2,7 @@ package com.example.testeemjava;
 
 import com.example.testeemjava.modelos.Animal;
 import com.example.testeemjava.model.User;
+import com.example.testeemjava.modelos.SpinnerAddPet;
 
 import java.util.List;
 
@@ -18,6 +19,11 @@ public interface LoginServices {
     @GET("contacts")
     Call<List<Animal>> getAnimals();
 
+    @POST("contacts")
+    Call<Animal> postPet(@Body Animal animal);
+
+//    @GET("contacts")
+//    Call<List<SpinnerAddPet>> getSpinner();
 
     @POST("users")
     Call<Void> cadastrarUser(@Body User user);
