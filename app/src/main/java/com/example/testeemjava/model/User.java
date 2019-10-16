@@ -8,7 +8,7 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     @SerializedName("id")
-    private int id;
+    private Integer id;
     @SerializedName("name")
     private String name;
     @SerializedName("email")
@@ -17,6 +17,8 @@ public class User implements Serializable {
     private String password;
 
     private Address address;
+
+
 
 
     @Override
@@ -30,7 +32,7 @@ public class User implements Serializable {
                 '}';
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -66,7 +68,8 @@ public class User implements Serializable {
         this.address = adress;
     }
 
-    public User(String name, String email, String password, Address address) {
+    public User(Integer id, String name, String email, String password, Address address) {
+        this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
@@ -76,5 +79,11 @@ public class User implements Serializable {
     public User(String email, String password) {
         this.email = email;
         this.password = password;
+    }
+
+    public User(String name, String email, Address address) {
+        this.name = name;
+        this.email = email;
+        this.address = address;
     }
 }

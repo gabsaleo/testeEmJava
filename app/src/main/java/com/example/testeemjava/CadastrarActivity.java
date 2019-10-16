@@ -57,7 +57,7 @@ public class CadastrarActivity extends AppCompatActivity {
     private void cadastrar() {
 //        Address adresss = new Address();
 
-        User user = new User(editNome.getText().toString(),
+        User user = new User(null, editNome.getText().toString(),
                 editEmail.getText().toString(), editSenha.getText().toString(),
 
                 new Address(editRua.getText().toString(), editNro.getText().toString(),

@@ -1,6 +1,7 @@
 package com.example.testeemjava.modelos;
 
 import com.example.testeemjava.model.User;
+import com.example.testeemjava.model.UserDTO;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
@@ -38,12 +39,12 @@ public class Animal implements Serializable {
 
     public boolean disease;
 
-    public User users;
+    public UserDTO users;
 
     public Animal(String id, String name, String age, String breed, String description,
                   String urlImage, String petSize, String petRecommendedTo, String coatLength,
                   String genre, String petType, String color, String bloodType, boolean vaccinated,
-                  boolean disease, User users) {
+                  boolean disease, UserDTO users) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -185,11 +186,11 @@ public class Animal implements Serializable {
         this.disease = disease;
     }
 
-    public User getUsers() {
+    public UserDTO getUsers() {
         return users;
     }
 
-    public void setUsers(User users) {
+    public void setUsers(UserDTO users) {
         this.users = users;
     }
 

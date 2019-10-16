@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.testeemjava.AppPet;
 import com.example.testeemjava.R;
 
 public class Menu extends Fragment {
@@ -25,7 +26,8 @@ public class Menu extends Fragment {
         botaoSair = view.findViewById(R.id.botaoSair);
 
 
-
+        textViewNome.setText(AppPet.getUserDTO().getName());
+        textEmail.setText(AppPet.getUserDTO().getEmail());
 
         return view;
 

@@ -1,5 +1,6 @@
 package com.example.testeemjava;
 
+import com.example.testeemjava.model.UserDTO;
 import com.example.testeemjava.modelos.Animal;
 import com.example.testeemjava.model.User;
 import com.example.testeemjava.modelos.SpinnerAddPet;
@@ -29,7 +30,7 @@ public interface LoginServices {
     Call<Void> cadastrarUser(@Body User user);
 
     @POST("users/login")
-    Call<User> loginUser(@Body User user);
+    Call<UserDTO> loginUser(@Body User user);
 
 
 

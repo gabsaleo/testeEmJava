@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.testeemjava.AppPet;
 import com.example.testeemjava.LoginServices;
 import com.example.testeemjava.R;
 import com.example.testeemjava.RetrofitClient;
@@ -24,6 +25,8 @@ import com.example.testeemjava.model.Enums.Genre;
 import com.example.testeemjava.model.Enums.PetRecommendedTo;
 import com.example.testeemjava.model.Enums.PetSize;
 import com.example.testeemjava.model.Enums.PetType;
+import com.example.testeemjava.model.User;
+import com.example.testeemjava.model.UserDTO;
 import com.example.testeemjava.modelos.Animal;
 import com.example.testeemjava.modelos.SpinnerAddPet;
 
@@ -119,7 +122,8 @@ public class AddPet extends Fragment {
                         editURL.getText().toString(), PetSize.toEnum(tamanhoText).getId(),
                         PetRecommendedTo.toEnum(recomendadoText).getId(), CoatLength.toEnum(pelosText).getId(),
                         Genre.toEnum(generoText).getId(), PetType.toEnum(tipoPetText).getId(), editCorPet.getText().toString(),
-                        editSanguineo.getText().toString(), checkVacinado.isChecked(), checkPossuiDoenca.isChecked(), null);
+                        editSanguineo.getText().toString(), checkVacinado.isChecked(), checkPossuiDoenca.isChecked(),
+                        AppPet.getUserDTO());
 
             LoginServices services = new RetrofitClient().getRetrofit();
             Call<Animal> animalCall = services.postPet(pet);

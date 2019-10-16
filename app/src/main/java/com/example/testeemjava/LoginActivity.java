@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.testeemjava.model.User;
+import com.example.testeemjava.model.UserDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,22 +68,23 @@ public class LoginActivity extends AppCompatActivity {
     public void loginUsuario(){
         final User user = new User(editName.getText().toString(), editSenha.getText().toString());
         LoginServices services = new RetrofitClient().getRetrofit();
-        Call<User> login = services.loginUser(user);
-        login.enqueue(new Callback<User>() {
+        Call<UserDTO> login = services.loginUser(user);
+        login.enqueue(new Callback<UserDTO>() {
             @Override
-            public void onResponse(Call<User> call, Response<User> response) {
+            public void onResponse(Call<UserDTO> call, Response<UserDTO> response) {
                 if(response.code() == 200){
                     Log.i("deu bom", "200");
                     Toast.makeText(LoginActivity.this, "uhuuuu", Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                    intent.putExtra("user", user);
+                    UserDTO body = response.body();
+                    AppPet.setUserDTO(body);
                     startActivity(intent);
                     finish();
                 }
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<UserDTO> call, Throwable t) {
                 Toast.makeText(LoginActivity.this, "Algo deu errado", Toast.LENGTH_SHORT).show();
                 t.getMessage();
             }
