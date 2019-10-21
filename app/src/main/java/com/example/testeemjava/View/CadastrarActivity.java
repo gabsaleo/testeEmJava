@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.testeemjava.Contracts.CadastrarContract;
 import com.example.testeemjava.Infra.LoginServices;
 import com.example.testeemjava.Infra.RetrofitClient;
+import com.example.testeemjava.Others.MaskEditUtil;
 import com.example.testeemjava.Presenter.CadastrarPresenter;
 import com.example.testeemjava.R;
 import com.example.testeemjava.model.Address;
@@ -56,6 +57,8 @@ public class CadastrarActivity extends AppCompatActivity implements CadastrarCon
 
         progressBar = findViewById(R.id.progressBar);
         button = findViewById(R.id.botaoCadastrar);
+
+        showProgress(false);
 
         editEmail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
