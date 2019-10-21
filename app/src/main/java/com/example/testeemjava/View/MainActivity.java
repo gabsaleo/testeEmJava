@@ -1,4 +1,4 @@
-package com.example.testeemjava;
+package com.example.testeemjava.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 
+import com.example.testeemjava.R;
 import com.example.testeemjava.fragments.AddPet;
 import com.example.testeemjava.fragments.Home;
 import com.example.testeemjava.fragments.Menu;

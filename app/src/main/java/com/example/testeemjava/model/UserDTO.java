@@ -1,39 +1,49 @@
 package com.example.testeemjava.model;
 
-import com.example.testeemjava.modelos.Animal;
-
 import java.io.Serializable;
-import java.util.List;
 
 public class UserDTO implements Serializable {
 
     private int id;
 
     private String name;
-
+//
     private String email;
+//
+//    private String password;
+//
+//    private String creationDate;
+//
+//    private String userType;
 
-    private String password;
-
-    private String creationDate;
-
-    private String userType;
-
-    private  Address address;
+//    private  Address address;
 
 //    private List<Animal> contacts;
 
-    public UserDTO(int id, String name, String password, String creationDate, String userType,
-                                                                                Address address) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
-        this.creationDate = creationDate;
-        this.userType = userType;
-        this.address = address;
-    }
+//    public UserDTO(int id, String name,
+//    String password, String creationDate,
+//    String userType, Address address) {
+
+//        this.id = id;
+////        this.name = name;
+////        this.password = password;
+////        this.creationDate = creationDate;
+////        this.userType = userType;
+////        this.address = address;
+//    }
+//
 
     public UserDTO() {
+    }
+
+    public UserDTO(int id) {
+        this.id = id;
+    }
+
+    public UserDTO(int id, String name, String email) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
     }
 
     public int getId() {
@@ -60,36 +70,36 @@ public class UserDTO implements Serializable {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
-    }
+//    public String getPassword() {
+//        return password;
+//    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(String creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    public String getUserType() {
-        return userType;
-    }
-
-    public void setUserType(String userType) {
-        this.userType = userType;
-    }
-
-    public Address getAddress() {
-        return address;
-    }
-
-    public void setAddress(Address address) {
-        this.address = address;
+//    public void setPassword(String password) {
+//        this.password = password;
+//    }
+//
+//    public String getCreationDate() {
+//        return creationDate;
+//    }
+//
+//    public void setCreationDate(String creationDate) {
+//        this.creationDate = creationDate;
+//    }
+//
+//    public String getUserType() {
+//        return userType;
+//    }
+//
+//    public void setUserType(String userType) {
+//        this.userType = userType;
+//    }
+//
+//    public Address getAddress() {
+//        return address;
+//    }
+//
+//    public void setAddress(Address address) {
+//        this.address = address;
     }
 
 //    public List<Animal> getContacts() {
@@ -99,4 +109,4 @@ public class UserDTO implements Serializable {
 //    public void setContacts(List<Animal> contacts) {
 //        this.contacts = contacts;
 //    }
-}
+

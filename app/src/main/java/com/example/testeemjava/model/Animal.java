@@ -1,8 +1,4 @@
-package com.example.testeemjava.modelos;
-
-import com.example.testeemjava.model.User;
-import com.example.testeemjava.model.UserDTO;
-import com.google.gson.annotations.SerializedName;
+package com.example.testeemjava.model;
 
 import java.io.Serializable;
 import java.util.Objects;

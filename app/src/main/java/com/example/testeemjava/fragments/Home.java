@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.RequestQueue;
-import com.example.testeemjava.Adapter;
-import com.example.testeemjava.LoginServices;
-import com.example.testeemjava.RetrofitClient;
+import com.example.testeemjava.fragments.adapter.Adapter;
+import com.example.testeemjava.Infra.LoginServices;
+import com.example.testeemjava.Infra.RetrofitClient;
 import com.example.testeemjava.R;
-import com.example.testeemjava.modelos.Animal;
+import com.example.testeemjava.model.Animal;
 
 import java.util.ArrayList;
 import java.util.List;

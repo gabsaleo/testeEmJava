@@ -1,6 +1,5 @@
 package com.example.testeemjava.fragments;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,22 +15,20 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.testeemjava.AppPet;
-import com.example.testeemjava.LoginServices;
+import com.example.testeemjava.Others.AppPet;
+import com.example.testeemjava.Infra.LoginServices;
+import com.example.testeemjava.Others.MaskEditUtil;
 import com.example.testeemjava.R;
-import com.example.testeemjava.RetrofitClient;
+import com.example.testeemjava.Infra.RetrofitClient;
 import com.example.testeemjava.model.Enums.CoatLength;
 import com.example.testeemjava.model.Enums.Genre;
 import com.example.testeemjava.model.Enums.PetRecommendedTo;
 import com.example.testeemjava.model.Enums.PetSize;
 import com.example.testeemjava.model.Enums.PetType;
-import com.example.testeemjava.model.User;
-import com.example.testeemjava.model.UserDTO;
-import com.example.testeemjava.modelos.Animal;
-import com.example.testeemjava.modelos.SpinnerAddPet;
+import com.example.testeemjava.model.Animal;
+import com.example.testeemjava.model.SpinnerAddPet;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import retrofit2.Call;
@@ -65,10 +62,7 @@ public class AddPet extends Fragment {
         view = inflater.inflate(R.layout.fragment_add_pet, container, false);
         loadUI();
         getSelectedSpinners();
-
-
-
-
+        editIdade.addTextChangedListener(MaskEditUtil.mask(editIdade, MaskEditUtil.FORMAT_DATE));
 
         checkPossuiDoenca.setOnClickListener(new View.OnClickListener() {
             @Override

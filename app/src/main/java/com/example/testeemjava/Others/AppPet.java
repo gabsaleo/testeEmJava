@@ -1,4 +1,4 @@
-package com.example.testeemjava;
+package com.example.testeemjava.Others;
 
 import android.app.Application;
 

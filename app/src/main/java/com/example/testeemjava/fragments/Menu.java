@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.testeemjava.AppPet;
+import com.example.testeemjava.Others.AppPet;
 import com.example.testeemjava.R;
 
 public class Menu extends Fragment {

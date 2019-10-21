@@ -1,4 +1,4 @@
-package com.example.testeemjava;
+package com.example.testeemjava.Infra;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

@@ -1,9 +1,8 @@
-package com.example.testeemjava;
+package com.example.testeemjava.Infra;
 
 import com.example.testeemjava.model.UserDTO;
-import com.example.testeemjava.modelos.Animal;
+import com.example.testeemjava.model.Animal;
 import com.example.testeemjava.model.User;
-import com.example.testeemjava.modelos.SpinnerAddPet;
 
 import java.util.List;
 
