@@ -18,7 +18,7 @@ public class UserDTO implements Serializable {
 
     private  Address address;
 
-    public UserDTO(int id, String name,
+    public UserDTO(Integer id, String name,
     String password, String creationDate,
     String userType, Address address) {
 

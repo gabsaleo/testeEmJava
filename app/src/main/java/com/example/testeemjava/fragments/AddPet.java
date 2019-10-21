@@ -1,5 +1,6 @@
 package com.example.testeemjava.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,6 +21,7 @@ import com.example.testeemjava.Infra.LoginServices;
 import com.example.testeemjava.Others.MaskEditUtil;
 import com.example.testeemjava.R;
 import com.example.testeemjava.Infra.RetrofitClient;
+import com.example.testeemjava.View.MainActivity;
 import com.example.testeemjava.model.Enums.CoatLength;
 import com.example.testeemjava.model.Enums.Genre;
 import com.example.testeemjava.model.Enums.PetRecommendedTo;
@@ -27,6 +29,7 @@ import com.example.testeemjava.model.Enums.PetSize;
 import com.example.testeemjava.model.Enums.PetType;
 import com.example.testeemjava.model.Animal;
 import com.example.testeemjava.model.SpinnerAddPet;
+import com.example.testeemjava.model.UserDTO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -111,13 +114,19 @@ public class AddPet extends Fragment {
         botaoSalvarCriarPet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                UserDTO userDTO = new UserDTO();
+                userDTO.setId(AppPet.getUserDTO().getId());
+
                 Animal pet = new Animal( editNamePet.getText().toString(), editIdade.getText().toString(),
                         editRaca.getText().toString(), editDescricaoPet.getText().toString(),
                         editURL.getText().toString(), PetSize.toEnum(tamanhoText).getId(),
                         PetRecommendedTo.toEnum(recomendadoText).getId(), CoatLength.toEnum(pelosText).getId(),
                         Genre.toEnum(generoText).getId(), PetType.toEnum(tipoPetText).getId(), editCorPet.getText().toString(),
-                        editSanguineo.getText().toString(), checkVacinado.isChecked(), checkPossuiDoenca.isChecked(), AppPet.getUserDTO().getId());
+                        editSanguineo.getText().toString(), checkVacinado.isChecked(),
+                        checkPossuiDoenca.isChecked(), userDTO);
 
+                Log.d("userDTO", userDTO.toString());
                 Log.d("toString", pet.toString());
                 Log.d("tamanho", PetSize.toEnum(tamanhoText).getId());
                 Log.d("tipo",  PetType.toEnum(tipoPetText).getId());
@@ -130,13 +139,12 @@ public class AddPet extends Fragment {
             animalCall.enqueue(new Callback<Animal>() {
                 @Override
                 public void onResponse(Call<Animal> call, Response<Animal> response) {
-                    if(!response.isSuccessful() || response.body() == null){
-                        Toast.makeText(getContext(), "Nao foi possivel cadastrar.", Toast.LENGTH_SHORT).show();
-                        return;
+                    if (response.code() == 200) {
+                        Toast.makeText(getContext(), "Pet cadastrado com sucesso", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(getContext(), MainActivity.class );
+                    startActivity(intent);
+                    return;
                     }
-                    Toast.makeText(getContext(), "Pet cadastrado com sucesso", Toast.LENGTH_SHORT).show();
-//                    Intent intent = new Intent(getContext(), Home.class );
-//                    startActivity(intent);
 
                 }
 

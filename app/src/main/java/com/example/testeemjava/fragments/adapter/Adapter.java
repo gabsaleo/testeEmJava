@@ -37,14 +37,17 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull Adapter.ViewHolder holder, int position) {
-        Animal animal = animals.get(position);
+        try {
+            Animal animal = animals.get(position);
 
-        String imageUrl = animal.urlImage;
-        String name = animal.name;
-        holder.texto.setText(name);
+            String imageUrl = animal.urlImage;
+            String name = animal.name;
+            holder.texto.setText(name);
 
-        Picasso.get().load(imageUrl).fit().into(holder.imagem);
-
+            Picasso.get().load(imageUrl).fit().into(holder.imagem);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
 
     }
