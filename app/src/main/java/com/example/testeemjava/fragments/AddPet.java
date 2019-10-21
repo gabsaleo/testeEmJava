@@ -62,7 +62,7 @@ public class AddPet extends Fragment {
         view = inflater.inflate(R.layout.fragment_add_pet, container, false);
         loadUI();
         getSelectedSpinners();
-        editIdade.addTextChangedListener(MaskEditUtil.mask(editIdade, MaskEditUtil.FORMAT_DATE));
+//        editIdade.addTextChangedListener(MaskEditUtil.mask(editIdade, MaskEditUtil.FORMAT_DATE));
 
         checkPossuiDoenca.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -111,13 +111,19 @@ public class AddPet extends Fragment {
         botaoSalvarCriarPet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Animal pet = new Animal(null, editNamePet.getText().toString(), editIdade.getText().toString(),
+                Animal pet = new Animal( editNamePet.getText().toString(), editIdade.getText().toString(),
                         editRaca.getText().toString(), editDescricaoPet.getText().toString(),
                         editURL.getText().toString(), PetSize.toEnum(tamanhoText).getId(),
                         PetRecommendedTo.toEnum(recomendadoText).getId(), CoatLength.toEnum(pelosText).getId(),
                         Genre.toEnum(generoText).getId(), PetType.toEnum(tipoPetText).getId(), editCorPet.getText().toString(),
-                        editSanguineo.getText().toString(), checkVacinado.isChecked(), checkPossuiDoenca.isChecked(),
-                        AppPet.getUserDTO());
+                        editSanguineo.getText().toString(), checkVacinado.isChecked(), checkPossuiDoenca.isChecked(), AppPet.getUserDTO().getId());
+
+                Log.d("toString", pet.toString());
+                Log.d("tamanho", PetSize.toEnum(tamanhoText).getId());
+                Log.d("tipo",  PetType.toEnum(tipoPetText).getId());
+                Log.d("genre",  Genre.toEnum(generoText).getId());
+                Log.d("pelos", CoatLength.toEnum(pelosText).getId());
+                Log.d("pegou", AppPet.getUserDTO().getId().toString());
 
             LoginServices services = new RetrofitClient().getRetrofit();
             Call<Animal> animalCall = services.postPet(pet);

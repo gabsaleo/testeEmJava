@@ -1,5 +1,6 @@
 package com.example.testeemjava.Presenter;
 
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.testeemjava.Others.AppPet;
@@ -36,10 +37,12 @@ public class LoginPresenter implements LoginContract.Presenter {
                     if (response.code() == 200) {
                         view.showProgress(false);
 //                        view.enableButton(true);
-                        view.navigateToList();
-
                         UserDTO body = response.body();
                         AppPet.setUserDTO(body);
+                        Log.d("body", body.toString());
+                        view.navigateToList();
+
+
                     }
                 }
 

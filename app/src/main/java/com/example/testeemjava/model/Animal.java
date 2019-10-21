@@ -1,5 +1,7 @@
 package com.example.testeemjava.model;
 
+import android.util.Log;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -35,12 +37,11 @@ public class Animal implements Serializable {
 
     public boolean disease;
 
-    public UserDTO users;
+    public Integer users;
 
-    public Animal(String id, String name, String age, String breed, String description,
-                  String urlImage, String petSize, String petRecommendedTo, String coatLength,
-                  String genre, String petType, String color, String bloodType, boolean vaccinated,
-                  boolean disease, UserDTO users) {
+    public Animal(String name, String age, String breed, String description, String urlImage,
+                  String petSize, String petRecommendedTo, String coatLength, String genre, String petType,
+                  String color, String bloodType, boolean vaccinated, boolean disease, Integer users) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -57,9 +58,6 @@ public class Animal implements Serializable {
         this.vaccinated = vaccinated;
         this.disease = disease;
         this.users = users;
-    }
-
-    public Animal() {
     }
 
     public String getId() {
@@ -182,12 +180,35 @@ public class Animal implements Serializable {
         this.disease = disease;
     }
 
-    public UserDTO getUsers() {
+    public Integer getUsers() {
         return users;
     }
 
-    public void setUsers(UserDTO users) {
+    public void setUsers(Integer users) {
         this.users = users;
+    }
+
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", age='" + age + '\'' +
+                ", breed='" + breed + '\'' +
+                ", description='" + description + '\'' +
+                ", urlImage='" + urlImage + '\'' +
+                ", petSize='" + petSize + '\'' +
+                ", petRecommendedTo='" + petRecommendedTo + '\'' +
+                ", coatLength='" + coatLength + '\'' +
+                ", genre='" + genre + '\'' +
+                ", petType='" + petType + '\'' +
+                ", color='" + color + '\'' +
+                ", bloodType='" + bloodType + '\'' +
+                ", vaccinated=" + vaccinated +
+                ", disease=" + disease +
+                ", users='" + users + '\'' +
+                '}';
+
     }
 
     @Override

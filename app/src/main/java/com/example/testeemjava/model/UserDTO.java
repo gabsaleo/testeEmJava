@@ -4,53 +4,51 @@ import java.io.Serializable;
 
 public class UserDTO implements Serializable {
 
-    private int id;
+    private Integer id;
 
     private String name;
-//
+
     private String email;
-//
-//    private String password;
-//
-//    private String creationDate;
-//
-//    private String userType;
 
-//    private  Address address;
+    private String password;
 
-//    private List<Animal> contacts;
+    private String creationDate;
 
-//    public UserDTO(int id, String name,
-//    String password, String creationDate,
-//    String userType, Address address) {
+    private String userType;
 
-//        this.id = id;
-////        this.name = name;
-////        this.password = password;
-////        this.creationDate = creationDate;
-////        this.userType = userType;
-////        this.address = address;
-//    }
-//
+    private  Address address;
+
+    public UserDTO(int id, String name,
+    String password, String creationDate,
+    String userType, Address address) {
+
+        this.id = id;
+        this.name = name;
+        this.password = password;
+        this.creationDate = creationDate;
+        this.userType = userType;
+        this.address = address;
+    }
+
 
     public UserDTO() {
     }
 
-    public UserDTO(int id) {
+    public UserDTO(Integer id) {
         this.id = id;
     }
 
-    public UserDTO(int id, String name, String email) {
+    public UserDTO(Integer id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -70,43 +68,38 @@ public class UserDTO implements Serializable {
         this.email = email;
     }
 
-//    public String getPassword() {
-//        return password;
-//    }
-
-//    public void setPassword(String password) {
-//        this.password = password;
-//    }
-//
-//    public String getCreationDate() {
-//        return creationDate;
-//    }
-//
-//    public void setCreationDate(String creationDate) {
-//        this.creationDate = creationDate;
-//    }
-//
-//    public String getUserType() {
-//        return userType;
-//    }
-//
-//    public void setUserType(String userType) {
-//        this.userType = userType;
-//    }
-//
-//    public Address getAddress() {
-//        return address;
-//    }
-//
-//    public void setAddress(Address address) {
-//        this.address = address;
+    public String getPassword() {
+        return password;
     }
 
-//    public List<Animal> getContacts() {
-//        return contacts;
-//    }
-//
-//    public void setContacts(List<Animal> contacts) {
-//        this.contacts = contacts;
-//    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+    }
+
+
 
