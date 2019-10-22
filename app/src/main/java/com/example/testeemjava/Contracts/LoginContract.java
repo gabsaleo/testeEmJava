@@ -17,6 +17,8 @@ public class LoginContract {
         void enableButton(boolean b);
 
         void errorPassword(String s);
+
+        void finalizarActivity();
     }
     public interface Presenter{
 

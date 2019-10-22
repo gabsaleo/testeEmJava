@@ -143,6 +143,11 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
         editSenha.setError(s);
     }
 
+    @Override
+    public void finalizarActivity() {
+         finish();
+    }
+
 
 //    public void retornaToast(){
 //

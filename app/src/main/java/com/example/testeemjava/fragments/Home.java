@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.RequestQueue;
 import com.example.testeemjava.fragments.adapter.Adapter;
 import com.example.testeemjava.Infra.LoginServices;
 import com.example.testeemjava.Infra.RetrofitClient;
@@ -28,7 +27,7 @@ public class Home extends Fragment {
 
     private List<Animal> animalList = new ArrayList<>();
     private Adapter adapter;
-    private RequestQueue requestQueue;
+
     private View view;
     public Animal animal;
     private RecyclerView recyclerView;

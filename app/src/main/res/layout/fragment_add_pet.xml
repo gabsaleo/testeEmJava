@@ -47,7 +47,7 @@
 
     <EditText
         android:id="@+id/editIdade"
-        android:layout_width="100dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="9dp"
         android:layout_marginEnd="32dp"
@@ -152,7 +152,7 @@
         android:layout_marginTop="12dp"
         android:ems="10"
         android:hint="Tipo sanguineo"
-        android:inputType="number"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

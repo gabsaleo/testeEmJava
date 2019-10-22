@@ -135,13 +135,14 @@ public class AddPet extends Fragment {
                 Log.d("pegou", AppPet.getUserDTO().getId().toString());
 
             LoginServices services = new RetrofitClient().getRetrofit();
-            Call<Animal> animalCall = services.postPet(pet);
-            animalCall.enqueue(new Callback<Animal>() {
+            Call<Void> animalCall = services.postPet(pet);
+            animalCall.enqueue(new Callback<Void>() {
                 @Override
-                public void onResponse(Call<Animal> call, Response<Animal> response) {
+                public void onResponse(Call<Void> call, Response<Void> response) {
+                    Log.d("response", String.valueOf(response.code()));
                     if (response.code() == 200) {
                         Toast.makeText(getContext(), "Pet cadastrado com sucesso", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(getContext(), MainActivity.class );
+                    Intent intent = new Intent(getActivity(), MainActivity.class );
                     startActivity(intent);
                     return;
                     }
@@ -149,7 +150,7 @@ public class AddPet extends Fragment {
                 }
 
                 @Override
-                public void onFailure(Call<Animal> call, Throwable t) {
+                public void onFailure(Call<Void> call, Throwable t) {
                     Log.d("erro" , t.getMessage());
                 }
             });

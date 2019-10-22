@@ -20,7 +20,7 @@ public interface LoginServices {
     Call<List<Animal>> getAnimals();
 
     @POST("contacts")
-    Call<Animal> postPet(@Body Animal animal);
+    Call<Void> postPet(@Body Animal animal);
 
 //    @GET("contacts")
 //    Call<List<SpinnerAddPet>> getSpinner();

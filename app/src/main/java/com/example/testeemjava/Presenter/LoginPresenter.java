@@ -41,6 +41,7 @@ public class LoginPresenter implements LoginContract.Presenter {
                         AppPet.setUserDTO(body);
                         Log.d("body", body.toString());
                         view.navigateToList();
+                        view.finalizarActivity();
 
 
                     }
