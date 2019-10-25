@@ -12,6 +12,8 @@ public class UserDTO implements Serializable {
 
     private String password;
 
+    private String phone;
+
     private String creationDate;
 
     private String userType;
@@ -20,7 +22,7 @@ public class UserDTO implements Serializable {
 
     public UserDTO(Integer id, String name,
     String password, String creationDate,
-    String userType, Address address) {
+    String userType,String phone, Address address) {
 
         this.id = id;
         this.name = name;
@@ -28,6 +30,7 @@ public class UserDTO implements Serializable {
         this.creationDate = creationDate;
         this.userType = userType;
         this.address = address;
+        this.phone = phone;
     }
 
 
@@ -90,6 +93,14 @@ public class UserDTO implements Serializable {
 
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Address getAddress() {

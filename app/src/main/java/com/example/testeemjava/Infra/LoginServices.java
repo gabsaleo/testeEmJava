@@ -26,6 +26,9 @@ public interface LoginServices {
 //    Call<List<SpinnerAddPet>> getSpinner();
 
     @POST("users")
+    Call<Void> alterarUser(@Body User user);
+
+    @POST("users")
     Call<Void> cadastrarUser(@Body User user);
 
     @POST("users/login")

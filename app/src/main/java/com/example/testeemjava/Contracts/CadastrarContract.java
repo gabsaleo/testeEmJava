@@ -23,7 +23,7 @@ public class CadastrarContract {
 
 
     public interface Presenter{
-        void cadastrarUsuario(String nome, String email, String password, String rua, String nro,
+        void cadastrarUsuario(String nome, String email, String password,String telefone,String rua, String nro,
                               String cidade, String estado, String pais, String logradouro, String bairro);
 
         boolean validUsername(String email);

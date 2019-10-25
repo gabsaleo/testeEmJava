@@ -20,16 +20,6 @@
         app:srcCompat="@drawable/doguineo" />
 
     <TextView
-        android:id="@+id/textNameDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="108dp"
-        android:text="Nome do pet"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageDetailsPet" />
-
-    <TextView
         android:id="@+id/textEmailContato"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -42,37 +32,17 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/textPossuiDoencaDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Possui doenca"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
-        app:layout_constraintStart_toEndOf="@+id/textVacinado"
-        app:layout_constraintTop_toBottomOf="@+id/textTipoSanguineoDetails" />
-
-    <TextView
-        android:id="@+id/textTipoSanguineoDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Tipo Sanguineo"
-        app:layout_constraintEnd_toEndOf="@+id/textIdadeDetails"
-        app:layout_constraintTop_toBottomOf="@+id/textIdadeDetails" />
-
-    <TextView
         android:id="@+id/textContato"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="196dp"
         android:text="Contato do donatario: "
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.154"
+        app:layout_constraintHorizontal_bias="0.077"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textGenre" />
+        app:layout_constraintTop_toBottomOf="@+id/textTexto" />
 
     <TextView
         android:id="@+id/textNameContato"
@@ -85,49 +55,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textContato"
         app:layout_constraintVertical_bias="0.333" />
-
-    <TextView
-        android:id="@+id/textGenre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/textVacinado"
-        app:layout_constraintStart_toEndOf="@+id/textVacinado"
-        app:layout_constraintTop_toBottomOf="@+id/textVacinado"
-        app:layout_constraintVertical_bias="0.368" />
-
-    <TextView
-        android:id="@+id/textRacaDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Raca"
-        app:layout_constraintEnd_toStartOf="@+id/textTipoSanguineoDetails"
-        app:layout_constraintHorizontal_bias="0.363"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textNameDetails" />
-
-    <TextView
-        android:id="@+id/textVacinado"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="40dp"
-        android:text="Vacinado"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textRacaDetails" />
-
-    <TextView
-        android:id="@+id/textIdadeDetails"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
-        android:text="Idade do pet"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.509"
-        app:layout_constraintStart_toEndOf="@+id/textNameDetails"
-        app:layout_constraintTop_toBottomOf="@+id/imageDetailsPet" />
 
     <ImageView
         android:id="@+id/imageVoltar"
@@ -149,5 +76,18 @@
         app:layout_constraintHorizontal_bias="0.196"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageDetailsPet" />
+
+    <ImageView
+        android:id="@+id/imageEditar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/imageDetailsPet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_editar"
+        android:contentDescription="TODO" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

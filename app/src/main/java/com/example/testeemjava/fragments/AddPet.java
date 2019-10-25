@@ -126,14 +126,6 @@ public class AddPet extends Fragment {
                         editSanguineo.getText().toString(), checkVacinado.isChecked(),
                         checkPossuiDoenca.isChecked(), userDTO);
 
-                Log.d("userDTO", userDTO.toString());
-                Log.d("toString", pet.toString());
-                Log.d("tamanho", PetSize.toEnum(tamanhoText).getId());
-                Log.d("tipo",  PetType.toEnum(tipoPetText).getId());
-                Log.d("genre",  Genre.toEnum(generoText).getId());
-                Log.d("pelos", CoatLength.toEnum(pelosText).getId());
-                Log.d("pegou", AppPet.getUserDTO().getId().toString());
-
             LoginServices services = new RetrofitClient().getRetrofit();
             Call<Void> animalCall = services.postPet(pet);
             animalCall.enqueue(new Callback<Void>() {

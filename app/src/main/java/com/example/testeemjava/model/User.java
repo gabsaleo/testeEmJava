@@ -16,9 +16,9 @@ public class User implements Serializable {
     @SerializedName("password")
     private String password;
 
+    private String phone;
+
     private Address address;
-
-
 
 
     @Override
@@ -30,6 +30,18 @@ public class User implements Serializable {
                 ", password='" + password + '\'' +
                 ", address=" + address +
                 '}';
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
     public Integer getId() {
@@ -68,11 +80,12 @@ public class User implements Serializable {
         this.address = adress;
     }
 
-    public User(Integer id, String name, String email, String password, Address address) {
+    public User(Integer id, String name, String email, String password, String phone, Address address) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
+        this.phone = phone;
         this.address = address;
     }
 

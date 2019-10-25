@@ -17,11 +17,13 @@ import android.widget.Toast;
 import com.example.testeemjava.Contracts.CadastrarContract;
 import com.example.testeemjava.Infra.LoginServices;
 import com.example.testeemjava.Infra.RetrofitClient;
+import com.example.testeemjava.Others.AppPet;
 import com.example.testeemjava.Others.MaskEditUtil;
 import com.example.testeemjava.Presenter.CadastrarPresenter;
 import com.example.testeemjava.R;
 import com.example.testeemjava.model.Address;
 import com.example.testeemjava.model.User;
+import com.example.testeemjava.model.UserDTO;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -29,10 +31,10 @@ import retrofit2.Response;
 
 public class CadastrarActivity extends AppCompatActivity implements CadastrarContract.View {
 
-
+    public static final String USER = "user";
     CadastrarContract.Presenter presenter;
     EditText editNome, editEmail, editSenha;
-    EditText editCidade, editPais, editRua, editNro, editEstado, editLogradouro, editBairro;
+    EditText editCidade, editPais, editRua, editNro, editEstado, editLogradouro, editBairro, editTelefone;
     Button button;
     ProgressBar progressBar;
 
@@ -46,6 +48,7 @@ public class CadastrarActivity extends AppCompatActivity implements CadastrarCon
         editNome = findViewById(R.id.editNome);
         editEmail = findViewById(R.id.editEmail);
         editSenha = findViewById(R.id.editSenha);
+        editTelefone = findViewById(R.id.editTelefone);
 
         editRua = findViewById(R.id.editRua);
         editNro = findViewById(R.id.editNroCasa);
@@ -59,6 +62,11 @@ public class CadastrarActivity extends AppCompatActivity implements CadastrarCon
         button = findViewById(R.id.botaoCadastrar);
 
         showProgress(false);
+        atualizar();
+
+
+
+        editTelefone.addTextChangedListener(MaskEditUtil.mask(editTelefone, MaskEditUtil.FORMAT_CEL));
 
         editEmail.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
@@ -69,30 +77,45 @@ public class CadastrarActivity extends AppCompatActivity implements CadastrarCon
             }
         });
 
-
-
-
-
-
-
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 cadastrarUsuario();
             }
         });
-
     }
 
 
 
     private void cadastrarUsuario() {
         presenter.cadastrarUsuario(editNome.getText().toString(), editEmail.getText().toString(),
-                editSenha.getText().toString(), editRua.getText().toString(), editNro.getText().toString(),
-                editCidade.getText().toString(), editEstado.getText().toString(),
+                editSenha.getText().toString(),editTelefone.getText().toString(), editRua.getText().toString(),
+                editNro.getText().toString(), editCidade.getText().toString(), editEstado.getText().toString(),
                 editPais.getText().toString(), editLogradouro.getText().toString(), editBairro.getText().toString());
-//        Address adresss = new Address();
+
+
+    }
+    private void atualizar(){
+
+            editSenha.setVisibility(View.INVISIBLE);
+            UserDTO userDTO = (UserDTO) getIntent().getSerializableExtra("user");
+            userDTO.setId(userDTO.getId());
+            editNome.setText(userDTO.getName());
+            editEmail.setText(userDTO.getEmail());
+            button.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(CadastrarActivity.this, "foi", Toast.LENGTH_SHORT).show();
+                }
+            });
+//            editTelefone.setText(AppPet.getUserDTO().getPhone());
+//            editRua.setText(AppPet.getUserDTO().getAddress().getStreet());
+//            editNro.setText(AppPet.getUserDTO().getAddress().getNumber());
+//            editCidade.setText(AppPet.getUserDTO().getAddress().getCity());
+//            editEstado.setText(AppPet.getUserDTO().getAddress().getState());
+//            editPais.setText(AppPet.getUserDTO().getAddress().getCountry());
+//            editLogradouro.setText(AppPet.getUserDTO().getAddress().getComplements());
+//            editBairro.setText(AppPet.getUserDTO().getAddress().getDistrict());
 
 
     }

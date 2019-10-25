@@ -56,26 +56,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
             holder.imagem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    UserDTO userDTO = animal.user;
-
-                    Toast.makeText(context, name, Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(context, DetailsPetActivity.class);
                     Bundle extras = new Bundle();
-                    extras.putString("Nome", animal.name);
-                    extras.putString("URL", imageUrl);
-                    extras.putString("Idade", animal.age);
-                    extras.putString("Raca", animal.breed);
-                    extras.putString("TipoSanguineo", animal.bloodType);
-                    extras.putString("Vacinado", String.valueOf(animal.vaccinated));
-                    extras.putString("PossuiDoenca", String.valueOf(animal.disease));
-                    extras.putString("NomeContato", userDTO.getName());
-                    extras.putString("EmailContato", userDTO.getEmail());
-                    extras.putString("Genero", animal.genre);
-                    extras.putString("Tamanho", animal.petSize);
-                    extras.putString("TipoPet", animal.petType);
-                    extras.putString("Pelos", animal.coatLength);
-                    extras.putString("Cor", animal.color);
-                    extras.putString("Recomendado", animal.petRecommendedTo);
+                    extras.putSerializable("animal", animal);
                     intent.putExtras(extras);
                     context.startActivity(intent);
 
@@ -107,16 +90,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
             texto = itemView.findViewById(R.id.title);
             imagem = itemView.findViewById(R.id.image);
 
-
-//            imagem.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Intent intent = new Intent(context, Details.class)
-//
-//                    String nomeCachorro = texto.getText().toString();
-//                    Toast.makeText(itemView.getContext(), "Clicou em " + nomeCachorro, Toast.LENGTH_SHORT).show();
-//                }
-//            });
         }
     }
 }
