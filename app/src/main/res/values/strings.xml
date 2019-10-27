@@ -4,6 +4,7 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="insira_seu_nome">Insira seu nome:</string>
+    <string name="nome_raca">Nome ou raça</string>
 
     <string-array name="planets_array">
         <item>Mercury</item>

@@ -1,10 +1,10 @@
 package com.example.testeemjava.model.Enums;
 
 public enum PetSize {
-    SMALL("SMALL", "Pequeno"),
-    MEDIUM("MEDIUM", "Medio"),
-    LARGE("LARGE", "Grande"),
-    XL("XL", "Gigante");
+    SMALL("SMALL", "Pequeno 6kg - 15kg"),
+    MEDIUM("MEDIUM", "Medio 15kg - 25kg"),
+    LARGE("LARGE", "Grande 25kg - 45kg"),
+    XL("XL", "Gigante 45kg - 90kg");
 
     private String id;
     private String msg;

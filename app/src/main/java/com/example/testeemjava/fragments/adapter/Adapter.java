@@ -81,6 +81,11 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
         else return 0;
     }
 
+    public void filterAdapter(List<Animal> filterList) {
+        animals = filterList;
+        notifyDataSetChanged();
+    }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView texto;

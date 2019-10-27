@@ -44,6 +44,29 @@ public class Home extends Fragment {
 
     }
 
+    public void filter(String nome) {
+        ArrayList<Animal> filterList = new ArrayList<>();
+        if(adapter != null) {
+            for (Animal animal : animalList) {
+                if (animal.getName().toLowerCase().contains(nome.toLowerCase())) {
+                    filterList.add(animal);
+                } else if (animal.getBreed().toLowerCase().contains(nome.toLowerCase())) {
+                    filterList.add(animal);
+                }
+            }
+            if (filterList == null) {
+                adapter.filterAdapter(animalList);
+                configAdapter(adapter);
+            } else {
+                adapter.filterAdapter(filterList);
+                configAdapter(adapter);
+            }
+        }
+    }
+
+
+
+
     private void getAnimals() {
         LoginServices services = new RetrofitClient().getRetrofit();
         services.getAnimals().enqueue(new Callback<List<Animal>>() {
@@ -54,7 +77,7 @@ public class Home extends Fragment {
                 for (Animal a : animalList){
                     Log.d("uhu", a.urlImage);
                 }
-                configAdapter();
+                configAdapter(adapter);
 
 
             }
@@ -69,7 +92,7 @@ public class Home extends Fragment {
 
     }
 
-    public void configAdapter(){
+    public void configAdapter(Adapter adapter){
     adapter = new Adapter(getContext(), animalList);
     recyclerView.setHasFixedSize(true);
     recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));

@@ -76,6 +76,89 @@ public class CadastrarPresenter implements CadastrarContract.Presenter {
 
     }
 
+    @Override
+    public boolean validName(String nome) {
+        if(nome.isEmpty()){
+            view.errorName("O nome é obrigatório");
+            view.enableButton(false);
+            return false;
+        }
+        view.enableButton(true);
+        return true;
+
+    }
+
+    @Override
+    public boolean validPassword(String senha) {
+        if(senha.isEmpty()){
+            view.errorSenha("A senha é obrigatória");
+            view.enableButton(false);
+            return false;
+        }
+        view.enableButton(true);
+        return true;
+    }
+
+    @Override
+    public boolean validRua(String rua) {
+        if(rua.isEmpty()){
+
+            view.errorRua("O nome da rua deve ser informado");
+            view.enableButton(false);
+            return false;
+        }
+        view.enableButton(true);
+        return true;
+    }
+
+    @Override
+    public boolean validNroCasa(String nroCasa) {
+        if(nroCasa.isEmpty()){
+
+            view.errorNroCasa("O numero da casa deve ser informado");
+            view.enableButton(false);
+            return false;
+        }
+        view.enableButton(true);
+        return true;
+    }
+
+    @Override
+    public boolean validEstado(String estado) {
+        if(estado.isEmpty()){
+
+            view.errorEstado("Um estado deve ser informado");
+            view.enableButton(false);
+            return false;
+        }
+        view.enableButton(true);
+        return true;
+    }
+
+    @Override
+    public boolean validTelefone(String telefone) {
+        if(telefone.isEmpty()){
+
+            view.errorTelefone("Um numero de celular deve ser informado");
+            view.enableButton(false);
+            return false;
+        }
+        view.enableButton(true);
+        return true;
+    }
+
+    @Override
+    public boolean validCidade(String toString) {
+        if(toString.isEmpty()){
+
+            view.errorCidade("A cidade deve ser informada");
+            view.enableButton(false);
+            return false;
+        }
+        view.enableButton(true);
+        return true;
+    }
+
 }//fim presenter
 
 

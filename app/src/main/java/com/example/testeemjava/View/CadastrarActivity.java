@@ -62,7 +62,7 @@ public class CadastrarActivity extends AppCompatActivity implements CadastrarCon
         button = findViewById(R.id.botaoCadastrar);
 
         showProgress(false);
-        atualizar();
+        //atualizar();
 
 
 
@@ -76,6 +76,64 @@ public class CadastrarActivity extends AppCompatActivity implements CadastrarCon
                 }
             }
         });
+        editNome.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    presenter.validName(editNome.getText().toString());
+                }
+            }
+        });
+        editSenha.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    presenter.validPassword(editSenha.getText().toString());
+                }
+            }
+        });
+        editRua.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    presenter.validRua(editRua.getText().toString());
+                }
+            }
+        });
+        editNro.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    presenter.validNroCasa(editNro.getText().toString());
+                }
+            }
+        });
+        editEstado.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    presenter.validEstado(editEstado.getText().toString());
+                }
+            }
+        });
+        editCidade.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    presenter.validCidade(editCidade.getText().toString());
+                }
+            }
+        });
+
+        editTelefone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    presenter.validTelefone(editTelefone.getText().toString());
+                }
+            }
+        });
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,4 +222,39 @@ public class CadastrarActivity extends AppCompatActivity implements CadastrarCon
     public void enableButton(boolean b) {
         button.setEnabled(b);
     }
+
+    @Override
+    public void errorName(String nome) {
+        editNome.setError(nome);
+    }
+
+    @Override
+    public void errorSenha(String senha) {
+        editSenha.setError(senha);
+    }
+
+    @Override
+    public void errorRua(String rua) {
+        editRua.setError(rua);
+    }
+
+    @Override
+    public void errorNroCasa(String nroCasa) {
+        editNro.setError(nroCasa);
+    }
+    @Override
+    public void errorEstado(String estado) {
+        editEstado.setError(estado);
+    }
+
+    @Override
+    public void errorCidade(String cidade) {
+        editCidade.setError(cidade);
+    }
+
+    @Override
+    public void errorTelefone(String s) {
+        editTelefone.setError(s);
+    }
+
 }
