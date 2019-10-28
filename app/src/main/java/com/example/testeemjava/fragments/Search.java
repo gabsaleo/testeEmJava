@@ -66,7 +66,7 @@ public class Search extends Fragment implements SearchContract.View {
 
 
     }//fim configAdapter
-    
+
     @Override
     public void onResume() {
         super.onResume();
