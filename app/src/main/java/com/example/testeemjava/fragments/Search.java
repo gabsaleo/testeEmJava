@@ -1,22 +1,20 @@
 package com.example.testeemjava.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
-import android.widget.SearchView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.testeemjava.Contracts.MainContract;
 import com.example.testeemjava.Contracts.SearchContract;
-import com.example.testeemjava.Infra.LoginServices;
-import com.example.testeemjava.Infra.RetrofitClient;
 import com.example.testeemjava.Presenter.SearchPresenter;
 import com.example.testeemjava.R;
 import com.example.testeemjava.fragments.adapter.Adapter;
@@ -34,47 +32,51 @@ public class Search extends Fragment implements SearchContract.View {
     private List<Animal> animalList = new ArrayList<>();
     View view;
     EditText editBusca;
-    private Adapter adapter;
     SearchContract.View viewSearch;
     RecyclerView recyclerView;
     SearchContract.Presenter presenter;
+    private Adapter mAdapter;
+    MainContract.View viewContract;
+    private RecyclerView.LayoutManager mLayoutManager;
 
-    public Search(SearchContract.View view) {
-        viewSearch = view;
-        this.presenter = new SearchPresenter(this);
+    public Search(MainContract.View viewContract) {
+        this.viewContract = viewContract;
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_search, container, false);
-
-
+        this.presenter = new SearchPresenter(this);
 
         editBusca = view.findViewById(R.id.editBusca);
         recyclerView = view.findViewById(R.id.recyclerViewBusca);
+        mAdapter = new Adapter(getContext(), animalList);
+
 
         presenter.getAnimals();
+
         return view;
     }
 
-    public void configAdapter (Adapter adapterList) {
-        adapter = new Adapter(getContext(), animalList);
+    public void configAdapter(Adapter adapter){
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        recyclerView.setAdapter(adapterList);
+        recyclerView.setAdapter(adapter);
 
 
     }//fim configAdapter
-
     @Override
     public void onResume() {
         super.onResume();
         editBusca.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -82,6 +84,8 @@ public class Search extends Fragment implements SearchContract.View {
             }
         });
     }
+
+
 
 
 }//fim class

@@ -3,8 +3,6 @@ package com.example.testeemjava.Presenter;
 import android.content.Context;
 import android.util.Log;
 
-import androidx.fragment.app.FragmentActivity;
-
 import com.example.testeemjava.Contracts.SearchContract;
 import com.example.testeemjava.Infra.LoginServices;
 import com.example.testeemjava.Infra.RetrofitClient;
@@ -21,7 +19,7 @@ import retrofit2.Response;
 public class SearchPresenter implements SearchContract.Presenter{
 
     SearchContract.View view;
-    private List<Animal> animalList = new ArrayList<>();
+    private ArrayList<Animal> animalList = new ArrayList<>();
     private Adapter adapter;
 
     public SearchPresenter(SearchContract.View view) {
@@ -30,20 +28,21 @@ public class SearchPresenter implements SearchContract.Presenter{
 
     @Override
     public void filter(String nome) {
-        ArrayList<Animal> animal = new ArrayList<>();
+
+        ArrayList<Animal> filterAnimal = new ArrayList<>();
         if(adapter != null) {
-            for (Animal animais: animalList) {
-                if (animais.getName().toLowerCase().contains(nome.toLowerCase())) {
-                    animal.add(animais);
-                } else if (animais.getBreed().toLowerCase().contains(nome.toLowerCase())) {
-                    animal.add(animais);
+            for (Animal colaborador : animalList) {
+                if (colaborador.getName().toLowerCase().contains(nome.toLowerCase())) {
+                    filterAnimal.add(colaborador);
+                } else if (colaborador.getBreed().toLowerCase().contains(nome.toLowerCase())) {
+                    filterAnimal.add(colaborador);
                 }
             }
-            if (animal == null) {
-                adapter.filterAdapter(animalList);
+            if (filterAnimal == null) {
+                adapter.filterList(animalList);
                 view.configAdapter(adapter);
             } else {
-                adapter.filterAdapter(animal);
+                adapter.filterList(filterAnimal);
                 view.configAdapter(adapter);
             }
         }
@@ -55,8 +54,8 @@ public class SearchPresenter implements SearchContract.Presenter{
         services.getAnimals().enqueue(new Callback<List<Animal>>() {
             @Override
             public void onResponse(Call<List<Animal>> call, Response<List<Animal>> response) {
-
-                animalList = response.body();
+                setAdapterListener();
+                animalList = (ArrayList<Animal>) response.body();
                 for (Animal a : animalList) {
                     Log.d("uhu", a.urlImage);
                 }
@@ -70,5 +69,9 @@ public class SearchPresenter implements SearchContract.Presenter{
 
         });
     }//fim getAnimals
+
+    public void setAdapterListener(){
+       adapter = new Adapter(view.getContext(), animalList);
+    }
 
 }

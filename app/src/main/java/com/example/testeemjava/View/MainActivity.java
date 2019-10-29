@@ -3,14 +3,13 @@ package com.example.testeemjava.View;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 
+import com.example.testeemjava.Contracts.MainContract;
+import com.example.testeemjava.Presenter.MainPresenter;
 import com.example.testeemjava.R;
 import com.example.testeemjava.fragments.AddPet;
 import com.example.testeemjava.fragments.Home;
@@ -18,22 +17,27 @@ import com.example.testeemjava.fragments.Menu;
 import com.example.testeemjava.fragments.Search;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements MainContract.View {
 
     private BottomNavigationView bottomNavigationView;
     private Fragment AddPet;
+    private View view;
+    MainContract.Presenter presenter;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        presenter = new MainPresenter(this);
+
         bottomNavigationView = findViewById(R.id.bottom_navigation);
-       bottomNavigationView.setOnNavigationItemSelectedListener(this);
-        showFragment(new Home());
+       bottomNavigationView.setOnNavigationItemSelectedListener( menuItem -> {
+            presenter.identifyItemClicked(menuItem);
+            return true;
+       });
+        showFragment(new Home(this));
 
     }
 
@@ -44,28 +48,4 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
                 .commit ();
     }
 
-    @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-
-        switch(menuItem.getItemId()){
-
-            case(R.id.ic_home):
-                showFragment(new Home());
-                break;
-            case(R.id.ic_add_pet):
-                showFragment(new AddPet());
-                break;
-
-            case(R.id.ic_search):
-                showFragment(new Search());
-                break;
-
-            case(R.id.ic_menu):
-                showFragment(new Menu());
-                break;
-
-
-        }
-        return true;
-    }
 }

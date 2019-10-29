@@ -16,6 +16,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.testeemjava.Contracts.MainContract;
 import com.example.testeemjava.Others.AppPet;
 import com.example.testeemjava.Infra.LoginServices;
 import com.example.testeemjava.Others.MaskEditUtil;
@@ -40,6 +41,7 @@ import retrofit2.Response;
 
 public class AddPet extends Fragment {
 
+    MainContract.View viewContract;
     String tamanhoText, pelosText, recomendadoText, tipoPetText, generoText;
 
     boolean txt = false;
@@ -59,10 +61,18 @@ public class AddPet extends Fragment {
     private CheckBox checkPossuiDoenca, checkVacinado;
     private Button botaoSalvarCriarPet;
 
+    public AddPet(MainContract.View viewContract) {
+        this.viewContract = viewContract;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_add_pet, container, false);
+
+
+
+
         loadUI();
         getSelectedSpinners();
 //        editIdade.addTextChangedListener(MaskEditUtil.mask(editIdade, MaskEditUtil.FORMAT_DATE));

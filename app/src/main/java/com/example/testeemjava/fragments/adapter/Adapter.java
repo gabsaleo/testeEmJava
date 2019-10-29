@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,6 +24,7 @@ import com.example.testeemjava.model.Animal;
 import com.example.testeemjava.model.UserDTO;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
@@ -53,16 +56,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
             holder.texto.setText(name);
             Log.d("url", imageUrl);
 
-            holder.imagem.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context, DetailsPetActivity.class);
-                    Bundle extras = new Bundle();
-                    extras.putSerializable("animal", animal);
-                    intent.putExtras(extras);
-                    context.startActivity(intent);
+            holder.imagem.setOnClickListener(v -> {
+                Intent intent = new Intent(context, DetailsPetActivity.class);
+                Bundle extras = new Bundle();
+                extras.putSerializable("animal", animal);
+                intent.putExtras(extras);
+                context.startActivity(intent);
 
-                }
             });
 
 
@@ -81,8 +81,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
         else return 0;
     }
 
-    public void filterAdapter(List<Animal> filterList) {
-        animals = filterList;
+    public void filterList(ArrayList<Animal> filteredList) {
+        animals = filteredList;
         notifyDataSetChanged();
     }
 

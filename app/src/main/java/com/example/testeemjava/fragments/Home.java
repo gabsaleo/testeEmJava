@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.testeemjava.Contracts.MainContract;
 import com.example.testeemjava.fragments.adapter.Adapter;
 import com.example.testeemjava.Infra.LoginServices;
 import com.example.testeemjava.Infra.RetrofitClient;
@@ -25,17 +26,24 @@ import retrofit2.Response;
 
 public class Home extends Fragment {
 
-    private List<Animal> animalList = new ArrayList<>();
+    private ArrayList<Animal> animalList = new ArrayList<>();
     private Adapter adapter;
 
     private View view;
     public Animal animal;
     private RecyclerView recyclerView;
+    MainContract.View viewContract;
+
+    public Home(MainContract.View viewContract) {
+        this.viewContract = viewContract;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home, container, false);
+
+
 
         recyclerView = view.findViewById(R.id.recyclerView);
 
@@ -55,10 +63,10 @@ public class Home extends Fragment {
                 }
             }
             if (filterList == null) {
-                adapter.filterAdapter(animalList);
+                adapter.filterList(animalList);
                 configAdapter(adapter);
             } else {
-                adapter.filterAdapter(filterList);
+                adapter.filterList(filterList);
                 configAdapter(adapter);
             }
         }
@@ -73,7 +81,7 @@ public class Home extends Fragment {
             @Override
             public void onResponse(Call<List<Animal>> call, Response<List<Animal>> response) {
 
-                animalList = response.body();
+                animalList = (ArrayList<Animal>) response.body();
                 for (Animal a : animalList){
                     Log.d("uhu", a.urlImage);
                 }
