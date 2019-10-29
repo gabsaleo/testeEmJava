@@ -1,12 +1,10 @@
-package com.example.testeemjava.Presenter;
+package com.example.testeemjava.SearchPackage;
 
-import android.content.Context;
 import android.util.Log;
 
-import com.example.testeemjava.Contracts.SearchContract;
 import com.example.testeemjava.Infra.LoginServices;
 import com.example.testeemjava.Infra.RetrofitClient;
-import com.example.testeemjava.fragments.adapter.Adapter;
+import com.example.testeemjava.HomePackage.adapter.Adapter;
 import com.example.testeemjava.model.Animal;
 
 import java.util.ArrayList;

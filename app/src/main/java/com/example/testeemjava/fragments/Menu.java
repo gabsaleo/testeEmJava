@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.testeemjava.Others.AppPet;
 import com.example.testeemjava.R;
-import com.example.testeemjava.View.CadastrarActivity;
+import com.example.testeemjava.CadastrarUsuPackage.CadastrarActivity;
 
 public class Menu extends Fragment {
 

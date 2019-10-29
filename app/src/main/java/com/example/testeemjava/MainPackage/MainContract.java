@@ -1,10 +1,8 @@
-package com.example.testeemjava.Contracts;
+package com.example.testeemjava.MainPackage;
 
 import android.view.MenuItem;
 
 import androidx.fragment.app.Fragment;
-
-import com.example.testeemjava.fragments.AddPet;
 
 public class MainContract {
 

@@ -1,10 +1,10 @@
-package com.example.testeemjava.Presenter;
+package com.example.testeemjava.LoginPackage;
 
 import android.util.Log;
 import android.widget.Toast;
 
 import com.example.testeemjava.Others.AppPet;
-import com.example.testeemjava.Contracts.LoginContract;
+import com.example.testeemjava.LoginPackage.LoginContract;
 import com.example.testeemjava.Infra.LoginServices;
 import com.example.testeemjava.Infra.RetrofitClient;
 import com.example.testeemjava.model.User;

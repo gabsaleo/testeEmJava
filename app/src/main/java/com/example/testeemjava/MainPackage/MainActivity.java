@@ -1,20 +1,13 @@
-package com.example.testeemjava.View;
+package com.example.testeemjava.MainPackage;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 
-import com.example.testeemjava.Contracts.MainContract;
-import com.example.testeemjava.Presenter.MainPresenter;
 import com.example.testeemjava.R;
-import com.example.testeemjava.fragments.AddPet;
-import com.example.testeemjava.fragments.Home;
-import com.example.testeemjava.fragments.Menu;
-import com.example.testeemjava.fragments.Search;
+import com.example.testeemjava.HomePackage.Home;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements MainContract.View {

@@ -1,4 +1,4 @@
-package com.example.testeemjava.Contracts;
+package com.example.testeemjava.LoginPackage;
 
 import android.content.Context;
 

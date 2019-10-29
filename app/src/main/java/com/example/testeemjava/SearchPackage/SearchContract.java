@@ -1,8 +1,8 @@
-package com.example.testeemjava.Contracts;
+package com.example.testeemjava.SearchPackage;
 
 import android.content.Context;
 
-import com.example.testeemjava.fragments.adapter.Adapter;
+import com.example.testeemjava.HomePackage.adapter.Adapter;
 
 public class SearchContract {
 

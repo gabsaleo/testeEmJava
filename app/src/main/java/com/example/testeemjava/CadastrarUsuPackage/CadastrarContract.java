@@ -1,4 +1,4 @@
-package com.example.testeemjava.Contracts;
+package com.example.testeemjava.CadastrarUsuPackage;
 
 import android.content.Context;
 

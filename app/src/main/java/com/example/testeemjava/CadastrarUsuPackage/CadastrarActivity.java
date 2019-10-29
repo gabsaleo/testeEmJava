@@ -1,4 +1,4 @@
-package com.example.testeemjava.View;
+package com.example.testeemjava.CadastrarUsuPackage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,27 +7,16 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.testeemjava.Contracts.CadastrarContract;
-import com.example.testeemjava.Infra.LoginServices;
-import com.example.testeemjava.Infra.RetrofitClient;
-import com.example.testeemjava.Others.AppPet;
+import com.example.testeemjava.LoginPackage.LoginActivity;
 import com.example.testeemjava.Others.MaskEditUtil;
-import com.example.testeemjava.Presenter.CadastrarPresenter;
 import com.example.testeemjava.R;
-import com.example.testeemjava.model.Address;
-import com.example.testeemjava.model.User;
 import com.example.testeemjava.model.UserDTO;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class CadastrarActivity extends AppCompatActivity implements CadastrarContract.View {
 

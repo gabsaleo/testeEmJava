@@ -1,15 +1,12 @@
-package com.example.testeemjava.Presenter;
+package com.example.testeemjava.MainPackage;
 
 import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
-
-import com.example.testeemjava.Contracts.MainContract;
 import com.example.testeemjava.R;
-import com.example.testeemjava.fragments.AddPet;
-import com.example.testeemjava.fragments.Home;
+import com.example.testeemjava.AddPetPackage.AddPet;
+import com.example.testeemjava.HomePackage.Home;
 import com.example.testeemjava.fragments.Menu;
-import com.example.testeemjava.fragments.Search;
+import com.example.testeemjava.SearchPackage.Search;
 
 public class MainPresenter implements MainContract.Presenter {
 

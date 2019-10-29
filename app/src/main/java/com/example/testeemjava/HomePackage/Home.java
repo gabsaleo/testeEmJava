@@ -1,4 +1,4 @@
-package com.example.testeemjava.fragments;
+package com.example.testeemjava.HomePackage;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -10,8 +10,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.testeemjava.Contracts.MainContract;
-import com.example.testeemjava.fragments.adapter.Adapter;
+import com.example.testeemjava.MainPackage.MainContract;
+import com.example.testeemjava.HomePackage.adapter.Adapter;
 import com.example.testeemjava.Infra.LoginServices;
 import com.example.testeemjava.Infra.RetrofitClient;
 import com.example.testeemjava.R;

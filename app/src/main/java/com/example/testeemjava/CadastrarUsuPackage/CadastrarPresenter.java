@@ -1,9 +1,8 @@
-package com.example.testeemjava.Presenter;
+package com.example.testeemjava.CadastrarUsuPackage;
 
 import android.util.Log;
 import android.widget.Toast;
 
-import com.example.testeemjava.Contracts.CadastrarContract;
 import com.example.testeemjava.Infra.LoginServices;
 import com.example.testeemjava.Infra.RetrofitClient;
 import com.example.testeemjava.model.Address;

@@ -1,6 +1,5 @@
-package com.example.testeemjava.fragments;
+package com.example.testeemjava.SearchPackage;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -13,19 +12,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.testeemjava.Contracts.MainContract;
-import com.example.testeemjava.Contracts.SearchContract;
-import com.example.testeemjava.Presenter.SearchPresenter;
+import com.example.testeemjava.MainPackage.MainContract;
 import com.example.testeemjava.R;
-import com.example.testeemjava.fragments.adapter.Adapter;
+import com.example.testeemjava.HomePackage.adapter.Adapter;
 import com.example.testeemjava.model.Animal;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class Search extends Fragment implements SearchContract.View {
 

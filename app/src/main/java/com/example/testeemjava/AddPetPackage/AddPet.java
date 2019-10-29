@@ -1,4 +1,4 @@
-package com.example.testeemjava.fragments;
+package com.example.testeemjava.AddPetPackage;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,13 +16,12 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.example.testeemjava.Contracts.MainContract;
+import com.example.testeemjava.MainPackage.MainContract;
 import com.example.testeemjava.Others.AppPet;
 import com.example.testeemjava.Infra.LoginServices;
-import com.example.testeemjava.Others.MaskEditUtil;
 import com.example.testeemjava.R;
 import com.example.testeemjava.Infra.RetrofitClient;
-import com.example.testeemjava.View.MainActivity;
+import com.example.testeemjava.MainPackage.MainActivity;
 import com.example.testeemjava.model.Enums.CoatLength;
 import com.example.testeemjava.model.Enums.Genre;
 import com.example.testeemjava.model.Enums.PetRecommendedTo;
@@ -77,36 +76,30 @@ public class AddPet extends Fragment {
         getSelectedSpinners();
 //        editIdade.addTextChangedListener(MaskEditUtil.mask(editIdade, MaskEditUtil.FORMAT_DATE));
 
-        checkPossuiDoenca.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(checkPossuiDoenca.isChecked()){
-                    Toast.makeText(getContext(), "Escolheu o " +checkPossuiDoenca.getText(), Toast.LENGTH_SHORT).show();
-                    txt = true;
-                    Log.d("foi", "true");
+        checkPossuiDoenca.setOnClickListener(v -> {
+            if(checkPossuiDoenca.isChecked()){
+                Toast.makeText(getContext(), "Escolheu o " +checkPossuiDoenca.getText(), Toast.LENGTH_SHORT).show();
+                txt = true;
+                Log.d("foi", "true");
 
-                }else{
-                    Toast.makeText(getContext(), "Deselecionado " +checkPossuiDoenca.getText(), Toast.LENGTH_SHORT).show();
-                    txt = false;
-                    Log.d("foi", "false");
-                }
-
-
+            }else{
+                Toast.makeText(getContext(), "Deselecionado " +checkPossuiDoenca.getText(), Toast.LENGTH_SHORT).show();
+                txt = false;
+                Log.d("foi", "false");
             }
+
+
         });
 
-        checkVacinado.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(checkVacinado.isChecked()){
-                    Toast.makeText(getContext(), "Escolheu o " +checkVacinado.getText(), Toast.LENGTH_SHORT).show();
-                    txt = true;
-                    Log.d("foi", "true");
-                }else{
-                    Toast.makeText(getContext(), "Deselecionado" +checkVacinado.getText(), Toast.LENGTH_SHORT).show();
-                    txt = false;
-                    Log.d("foi", "false");
-                }
+        checkVacinado.setOnClickListener(v -> {
+            if(checkVacinado.isChecked()){
+                Toast.makeText(getContext(), "Escolheu o " +checkVacinado.getText(), Toast.LENGTH_SHORT).show();
+                txt = true;
+                Log.d("foi", "true");
+            }else{
+                Toast.makeText(getContext(), "Deselecionado" +checkVacinado.getText(), Toast.LENGTH_SHORT).show();
+                txt = false;
+                Log.d("foi", "false");
             }
         });
 
@@ -121,44 +114,40 @@ public class AddPet extends Fragment {
     }
 
     private void addPet() {
-        botaoSalvarCriarPet.setOnClickListener(new View.OnClickListener() {
+        botaoSalvarCriarPet.setOnClickListener(v -> {
+
+            UserDTO userDTO = new UserDTO();
+            userDTO.setId(AppPet.getUserDTO().getId());
+
+            Animal pet = new Animal( editNamePet.getText().toString(), editIdade.getText().toString(),
+                    editRaca.getText().toString(), editDescricaoPet.getText().toString(),
+                    editURL.getText().toString(), PetSize.toEnum(tamanhoText).getId(),
+                    PetRecommendedTo.toEnum(recomendadoText).getId(), CoatLength.toEnum(pelosText).getId(),
+                    Genre.toEnum(generoText).getId(), PetType.toEnum(tipoPetText).getId(), editCorPet.getText().toString(),
+                    editSanguineo.getText().toString(), checkVacinado.isChecked(),
+                    checkPossuiDoenca.isChecked(), userDTO);
+
+        LoginServices services = new RetrofitClient().getRetrofit();
+        Call<Void> animalCall = services.postPet(pet);
+        animalCall.enqueue(new Callback<Void>() {
             @Override
-            public void onClick(View v) {
-
-                UserDTO userDTO = new UserDTO();
-                userDTO.setId(AppPet.getUserDTO().getId());
-
-                Animal pet = new Animal( editNamePet.getText().toString(), editIdade.getText().toString(),
-                        editRaca.getText().toString(), editDescricaoPet.getText().toString(),
-                        editURL.getText().toString(), PetSize.toEnum(tamanhoText).getId(),
-                        PetRecommendedTo.toEnum(recomendadoText).getId(), CoatLength.toEnum(pelosText).getId(),
-                        Genre.toEnum(generoText).getId(), PetType.toEnum(tipoPetText).getId(), editCorPet.getText().toString(),
-                        editSanguineo.getText().toString(), checkVacinado.isChecked(),
-                        checkPossuiDoenca.isChecked(), userDTO);
-
-            LoginServices services = new RetrofitClient().getRetrofit();
-            Call<Void> animalCall = services.postPet(pet);
-            animalCall.enqueue(new Callback<Void>() {
-                @Override
-                public void onResponse(Call<Void> call, Response<Void> response) {
-                    Log.d("response", String.valueOf(response.code()));
-                    if (response.code() == 200) {
-                        Toast.makeText(getContext(), "Pet cadastrado com sucesso", Toast.LENGTH_LONG).show();
-                    Intent intent = new Intent(getActivity(), MainActivity.class );
-                    startActivity(intent);
-                    return;
-                    }
-
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                Log.d("response", String.valueOf(response.code()));
+                if (response.code() == 200) {
+                    Toast.makeText(getContext(), "Pet cadastrado com sucesso", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getActivity(), MainActivity.class );
+                startActivity(intent);
+                return;
                 }
-
-                @Override
-                public void onFailure(Call<Void> call, Throwable t) {
-                    Log.d("erro" , t.getMessage());
-                }
-            });
-
 
             }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Log.d("erro" , t.getMessage());
+            }
+        });
+
 
         });
     }

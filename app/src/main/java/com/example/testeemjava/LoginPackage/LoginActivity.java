@@ -1,4 +1,4 @@
-package com.example.testeemjava.View;
+package com.example.testeemjava.LoginPackage;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,10 +13,10 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.testeemjava.Contracts.LoginContract;
 import com.example.testeemjava.Infra.RetrofitClient;
-import com.example.testeemjava.Presenter.LoginPresenter;
+import com.example.testeemjava.MainPackage.MainActivity;
 import com.example.testeemjava.R;
+import com.example.testeemjava.CadastrarUsuPackage.CadastrarActivity;
 import com.example.testeemjava.model.User;
 
 import java.util.ArrayList;

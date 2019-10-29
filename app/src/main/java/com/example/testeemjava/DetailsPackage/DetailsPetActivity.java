@@ -1,18 +1,15 @@
-package com.example.testeemjava.View;
+package com.example.testeemjava.DetailsPackage;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.testeemjava.Others.AppPet;
+import com.example.testeemjava.MainPackage.MainActivity;
 import com.example.testeemjava.R;
-import com.example.testeemjava.fragments.AddPet;
 import com.example.testeemjava.model.Animal;
 import com.example.testeemjava.model.UserDTO;
 import com.squareup.picasso.Picasso;
@@ -39,7 +36,6 @@ public class DetailsPetActivity extends AppCompatActivity {
 
         imagemPetDetails = findViewById(R.id.imageDetailsPet);
         imageVoltar = findViewById(R.id.imageVoltar);
-        imageEditar = findViewById(R.id.imageEditar);
         NomeContato = findViewById(R.id.textNameContato);
         emailContato = findViewById(R.id.textEmailContato);
         texto = findViewById(R.id.textTexto);
