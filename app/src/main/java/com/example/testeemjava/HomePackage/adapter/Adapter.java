@@ -1,4 +1,4 @@
-package com.example.testeemjava.fragments.adapter;
+package com.example.testeemjava.HomePackage.adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,19 +9,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.Filter;
-import android.widget.Filterable;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.testeemjava.R;
-import com.example.testeemjava.View.DetailsPetActivity;
-import com.example.testeemjava.View.LoginActivity;
-import com.example.testeemjava.View.MainActivity;
+import com.example.testeemjava.DetailsPackage.DetailsPetActivity;
 import com.example.testeemjava.model.Animal;
-import com.example.testeemjava.model.UserDTO;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
