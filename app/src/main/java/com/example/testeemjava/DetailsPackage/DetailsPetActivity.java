@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso;
 
 public class DetailsPetActivity extends AppCompatActivity {
 
-    TextView NomeContato, emailContato, texto, telefone, nomePet, IdadePet, RacaPet;
+    TextView NomeContato, emailContato, texto, telefone, nomePet, IdadePet, RacaPet, corPet;
     ImageView imagemPetDetails, imageEditar;
     ImageView imageVoltar;
 
@@ -41,6 +41,7 @@ public class DetailsPetActivity extends AppCompatActivity {
         telefone = findViewById(R.id.textTelefoneContato);
         nomePet = findViewById(R.id.nomePetDetails);
         IdadePet = findViewById(R.id.idadePetDetails);
+        corPet = findViewById(R.id.corPetDetails);
         RacaPet = findViewById(R.id.racaPetDetails);
         texto = findViewById(R.id.textTexto);
 
@@ -176,6 +177,7 @@ public class DetailsPetActivity extends AppCompatActivity {
             nomePet.setText(namePet);
             IdadePet.setText(idade);
             RacaPet.setText(raca);
+            corPet.setText(cor);
             texto.setText(Este + " é " + substantivoMin + namePet + ". " +
                     pronome + " tem " + idade + " anos" + " é" + um + tipoPet + genero +
                     " e é da raça " + raca + ". " + pronome + vacinado
