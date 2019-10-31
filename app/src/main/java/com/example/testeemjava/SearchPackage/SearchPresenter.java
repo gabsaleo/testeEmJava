@@ -36,8 +36,6 @@ public class SearchPresenter implements SearchContract.Presenter{
                     filterAnimal.add(colaborador);
                 }else if (colaborador.getColor().toLowerCase().contains(nome.toLowerCase())) {
                     filterAnimal.add(colaborador);
-                } else if (colaborador.getPetSize().toString().toLowerCase().contains(nome.toLowerCase())){
-                    filterAnimal.add(colaborador);
                 }
             }
             if (filterAnimal == null) {

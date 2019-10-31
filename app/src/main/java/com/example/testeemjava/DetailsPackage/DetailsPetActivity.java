@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso;
 
 public class DetailsPetActivity extends AppCompatActivity {
 
-    TextView NomeContato, emailContato, texto;
+    TextView NomeContato, emailContato, texto, telefone, nomePet, IdadePet, RacaPet;
     ImageView imagemPetDetails, imageEditar;
     ImageView imageVoltar;
 
@@ -38,13 +38,17 @@ public class DetailsPetActivity extends AppCompatActivity {
         imageVoltar = findViewById(R.id.imageVoltar);
         NomeContato = findViewById(R.id.textNameContato);
         emailContato = findViewById(R.id.textEmailContato);
+        telefone = findViewById(R.id.textTelefoneContato);
+        nomePet = findViewById(R.id.nomePetDetails);
+        IdadePet = findViewById(R.id.idadePetDetails);
+        RacaPet = findViewById(R.id.racaPetDetails);
         texto = findViewById(R.id.textTexto);
 
         
 
         Bundle bundle = getIntent().getExtras();
         if (getIntent().hasExtra("animal")) {
-            Animal animal  = (Animal) bundle.getSerializable("animal");
+            Animal animal = (Animal) bundle.getSerializable("animal");
 
             UserDTO userDTO = animal.user;
             String namePet = animal.name;
@@ -57,6 +61,7 @@ public class DetailsPetActivity extends AppCompatActivity {
             String possuiDoenca = String.valueOf(animal.disease);
             NomeContato.setText(userDTO.getName());
             emailContato.setText(userDTO.getEmail());
+            telefone.setText(userDTO.getPhone());
             String genero = animal.genre;
             String tamanho = animal.petSize;
             String pelos = animal.coatLength;
@@ -135,38 +140,42 @@ public class DetailsPetActivity extends AppCompatActivity {
 
 
             if (("false").equals(possuiDoenca)) {
-                    possuiDoenca = (" nao possui doença");
-                } else {
-                    possuiDoenca = (" possui doença");
-                }
+                possuiDoenca = (" nao possui doença");
+            } else {
+                possuiDoenca = (" possui doença");
+            }
 
-                if (("false").equals(vacinado)) {
-                    vacinado = (" nao é vacinado");
-                } else {
-                    vacinado = (" é vacinado");
-                }
-                if (("").equals(raca) || idade.equals("0")) {
-                    raca = ("A raça nao foi informada");
-                    idade = ("A idade nao foi informada");
-                }
-                if ((" macho").equals(genero)) {
-                    substantivo = "O ";
-                    pronome = "Ele ";
-                    Este = "Este ";
-                    substantivoMin = "o ";
-                    pronomeMin = "ele ";
-                    um = " um ";
+            if (("false").equals(vacinado)) {
+                vacinado = (" nao é vacinado");
+            } else {
+                vacinado = (" é vacinado");
+            }
+            if (("").equals(raca) || idade.equals("0")) {
+                raca = ("A raça nao foi informada");
+                idade = ("A idade nao foi informada");
+            }
+            if ((" macho").equals(genero)) {
+                substantivo = "O ";
+                pronome = "Ele ";
+                Este = "Este ";
+                substantivoMin = "o ";
+                pronomeMin = "ele ";
+                um = " um ";
 
-                }
-                if ((" femea").equals(genero)) {
-                    substantivo = "A ";
-                    pronome = "Ela ";
-                    Este = "Esta ";
-                    substantivoMin = "a ";
-                    pronomeMin = "ela ";
-                    um = " uma ";
+            }
+            if ((" femea").equals(genero)) {
+                substantivo = "A ";
+                pronome = "Ela ";
+                Este = "Esta ";
+                substantivoMin = "a ";
+                pronomeMin = "ela ";
+                um = " uma ";
 
-                }
+            }
+
+            nomePet.setText(namePet);
+            IdadePet.setText(idade);
+            RacaPet.setText(raca);
             texto.setText(Este + " é " + substantivoMin + namePet + ". " +
                     pronome + " tem " + idade + " anos" + " é" + um + tipoPet + genero +
                     " e é da raça " + raca + ". " + pronome + vacinado
@@ -174,19 +183,7 @@ public class DetailsPetActivity extends AppCompatActivity {
                     + "tem a pelagem " + pelos + ", possui a cor " + cor + ", e é recomendado " + recomendado + ".");
 
 
-            }
-
-
-
-            imageVoltar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(DetailsPetActivity.this, MainActivity.class);
-                    startActivity(intent);
-
-                }
-            });
-            //String url = idade.getText().toString();
+        } //String url = idade.getText().toString();
 
 
         }
