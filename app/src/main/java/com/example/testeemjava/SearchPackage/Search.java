@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.testeemjava.MainPackage.MainContract;
 import com.example.testeemjava.R;
 import com.example.testeemjava.HomePackage.adapter.Adapter;
-import com.example.testeemjava.model.Animal;
+import com.example.testeemjava.Model.Animal;
 
 import java.util.ArrayList;
 import java.util.List;

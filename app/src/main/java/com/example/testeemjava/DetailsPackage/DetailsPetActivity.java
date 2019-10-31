@@ -10,8 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.testeemjava.MainPackage.MainActivity;
 import com.example.testeemjava.R;
-import com.example.testeemjava.model.Animal;
-import com.example.testeemjava.model.UserDTO;
+import com.example.testeemjava.Model.Animal;
+import com.example.testeemjava.Model.UserDTO;
 import com.squareup.picasso.Picasso;
 
 public class DetailsPetActivity extends AppCompatActivity {

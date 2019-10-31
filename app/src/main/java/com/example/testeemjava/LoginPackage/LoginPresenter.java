@@ -7,8 +7,8 @@ import com.example.testeemjava.Others.AppPet;
 import com.example.testeemjava.LoginPackage.LoginContract;
 import com.example.testeemjava.Infra.LoginServices;
 import com.example.testeemjava.Infra.RetrofitClient;
-import com.example.testeemjava.model.User;
-import com.example.testeemjava.model.UserDTO;
+import com.example.testeemjava.Model.User;
+import com.example.testeemjava.Model.UserDTO;
 
 import retrofit2.Call;
 import retrofit2.Callback;

@@ -5,8 +5,8 @@ import android.widget.Toast;
 
 import com.example.testeemjava.Infra.LoginServices;
 import com.example.testeemjava.Infra.RetrofitClient;
-import com.example.testeemjava.model.Address;
-import com.example.testeemjava.model.User;
+import com.example.testeemjava.Model.Address;
+import com.example.testeemjava.Model.User;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -25,7 +25,7 @@ public class CadastrarPresenter implements CadastrarContract.Presenter {
                                  String rua, String nro, String cidade, String estado,
                                  String pais, String logradouro, String bairro) {
         User user = new User(null, nome, email, password, phone,
-                new Address(rua, nro, cidade, estado, pais, logradouro, bairro));
+                new Address(rua, nro, cidade, estado, cidade, logradouro, bairro));
 
         LoginServices services = new RetrofitClient().getRetrofit();
         view.showProgress(false);

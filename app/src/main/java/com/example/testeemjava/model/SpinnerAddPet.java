@@ -1,4 +1,4 @@
-package com.example.testeemjava.model;
+package com.example.testeemjava.Model;
 
 public class SpinnerAddPet {
 

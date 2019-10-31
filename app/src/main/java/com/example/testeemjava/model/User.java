@@ -1,4 +1,4 @@
-package com.example.testeemjava.model;
+package com.example.testeemjava.Model;
 
 import com.google.gson.annotations.SerializedName;
 

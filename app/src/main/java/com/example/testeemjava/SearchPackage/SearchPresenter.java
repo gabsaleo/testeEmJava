@@ -5,7 +5,7 @@ import android.util.Log;
 import com.example.testeemjava.Infra.LoginServices;
 import com.example.testeemjava.Infra.RetrofitClient;
 import com.example.testeemjava.HomePackage.adapter.Adapter;
-import com.example.testeemjava.model.Animal;
+import com.example.testeemjava.Model.Animal;
 
 import java.util.ArrayList;
 import java.util.List;

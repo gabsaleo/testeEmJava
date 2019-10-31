@@ -17,7 +17,7 @@ import com.example.testeemjava.Infra.RetrofitClient;
 import com.example.testeemjava.MainPackage.MainActivity;
 import com.example.testeemjava.R;
 import com.example.testeemjava.CadastrarUsuPackage.CadastrarActivity;
-import com.example.testeemjava.model.User;
+import com.example.testeemjava.Model.User;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -74,7 +74,7 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
     }
 
     private void initComponents() {
-        users = new ArrayList<>();
+        users = new ArrayList();
         progressBar = findViewById(R.id.progressBar);
         button = findViewById(R.id.button);
         botaoCadastrar = findViewById(R.id.botaoCadastrar);

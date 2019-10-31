@@ -1,8 +1,8 @@
 package com.example.testeemjava.Infra;
 
-import com.example.testeemjava.model.UserDTO;
-import com.example.testeemjava.model.Animal;
-import com.example.testeemjava.model.User;
+import com.example.testeemjava.Model.UserDTO;
+import com.example.testeemjava.Model.Animal;
+import com.example.testeemjava.Model.User;
 
 import java.util.List;
 
@@ -13,17 +13,11 @@ import retrofit2.http.POST;
 
 public interface LoginServices {
 
-//    @GET("users")
-//    Call<List<Animal>> getUsers();
-
     @GET("contacts")
     Call<List<Animal>> getAnimals();
 
     @POST("contacts")
     Call<Void> postPet(@Body Animal animal);
-
-//    @GET("contacts")
-//    Call<List<SpinnerAddPet>> getSpinner();
 
     @POST("users")
     Call<Void> alterarUser(@Body User user);

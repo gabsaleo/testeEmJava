@@ -1,4 +1,4 @@
-package com.example.testeemjava.model;
+package com.example.testeemjava.Model;
 
 import java.io.Serializable;
 
@@ -21,7 +21,7 @@ public class Address implements Serializable {
 
     private String district;
 
-    private  User user;
+    private User user;
 
     public Address(String street, String number, String city, String state, String country, String complements, String district) {
         this.street = street;

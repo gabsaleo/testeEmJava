@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.example.testeemjava.LoginPackage.LoginActivity;
 import com.example.testeemjava.Others.MaskEditUtil;
 import com.example.testeemjava.R;
-import com.example.testeemjava.model.UserDTO;
+import com.example.testeemjava.Model.UserDTO;
 
 public class CadastrarActivity extends AppCompatActivity implements CadastrarContract.View {
 

@@ -18,7 +18,7 @@ import com.example.testeemjava.CadastrarUsuPackage.CadastrarActivity;
 public class Menu extends Fragment {
 
     private View view;
-    private TextView textViewNome, textEmail;
+    private TextView textViewNome, textEmail, textTelefone, Rua, Nro, Bairro, Cidade, Estado;
     private Button botaoSair, botaoAlterar;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -27,19 +27,23 @@ public class Menu extends Fragment {
         textViewNome =   view.findViewById(R.id.textNome);
         textEmail = view.findViewById(R.id.textEmail);
         botaoSair = view.findViewById(R.id.botaoSair);
-        botaoAlterar = view.findViewById(R.id.botaoAlterar);
+        textTelefone = view.findViewById(R.id.textTelefone);
+        Rua = view.findViewById(R.id.textRua);
+        Nro = view.findViewById(R.id.textNro);
+        Bairro = view.findViewById(R.id.textBairro);
+        Cidade = view.findViewById(R.id.textCidade);
+        Estado = view.findViewById(R.id.textEstado);
+
 
 
         textViewNome.setText(AppPet.getUserDTO().getName());
         textEmail.setText(AppPet.getUserDTO().getEmail());
-        botaoAlterar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), CadastrarActivity.class);
-                intent.putExtra("user", AppPet.getUserDTO());
-                startActivity(intent);
-            }
-        });
+        textTelefone.setText(AppPet.getUserDTO().getPhone());
+        Rua.setText(AppPet.getUserDTO().getAddress().getStreet());
+        Nro.setText(AppPet.getUserDTO().getAddress().getNumber());
+        Bairro.setText(AppPet.getUserDTO().getAddress().getDistrict());
+        Cidade.setText(AppPet.getUserDTO().getAddress().getCity());
+        Estado.setText(AppPet.getUserDTO().getAddress().getState());
         botaoSair.setOnClickListener(new View.OnClickListener() {
 
             @Override

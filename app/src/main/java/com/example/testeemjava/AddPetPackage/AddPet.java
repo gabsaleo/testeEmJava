@@ -27,9 +27,9 @@ import com.example.testeemjava.model.Enums.Genre;
 import com.example.testeemjava.model.Enums.PetRecommendedTo;
 import com.example.testeemjava.model.Enums.PetSize;
 import com.example.testeemjava.model.Enums.PetType;
-import com.example.testeemjava.model.Animal;
-import com.example.testeemjava.model.SpinnerAddPet;
-import com.example.testeemjava.model.UserDTO;
+import com.example.testeemjava.Model.Animal;
+import com.example.testeemjava.Model.SpinnerAddPet;
+import com.example.testeemjava.Model.UserDTO;
 
 import java.util.ArrayList;
 import java.util.List;

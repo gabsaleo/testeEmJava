@@ -74,7 +74,7 @@
 
     <Spinner
         android:id="@+id/spinnerGenero"
-        android:layout_width="164dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:spinnerMode="dropdown"
@@ -87,11 +87,9 @@
         android:id="@+id/spinnerRecomendado"
         android:layout_width="164dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="180dp"
         android:layout_marginTop="5dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.686"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/spinnerPelagem"
         app:layout_constraintTop_toBottomOf="@+id/spinnerPorte" />
 
     <Spinner
@@ -101,8 +99,7 @@
         android:layout_marginTop="5dp"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.919"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/spinnerGenero"
         app:layout_constraintTop_toBottomOf="@+id/checkPossuiDoenca" />
 
     <Button
@@ -120,12 +117,12 @@
 
     <Spinner
         android:id="@+id/spinnerPelagem"
-        android:layout_width="164dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="4dp"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintHorizontal_bias="0.124"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerGenero" />
 
@@ -134,7 +131,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="26dp"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="26dp"
         android:ems="10"
         android:hint="Descricao"
@@ -160,7 +157,7 @@
 
     <Spinner
         android:id="@+id/spinnerTipoPet"
-        android:layout_width="164dp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         app:layout_constraintEnd_toEndOf="parent"
