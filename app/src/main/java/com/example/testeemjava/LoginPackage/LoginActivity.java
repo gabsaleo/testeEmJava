@@ -26,7 +26,6 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     EditText editName, editSenha;
     Button button;
-    RetrofitClient retrofitClient;
     TextView botaoCadastrar;
     LoginContract.Presenter presenter;
     List<User> users;
@@ -85,10 +84,8 @@ public class LoginActivity extends AppCompatActivity implements LoginContract.Vi
 
     public void loginUsuario(){
 
-        presenter.login(editName.getText().toString(), editSenha.getText().toString());
-//        if (presenter.validPassword(editSenha.getText().toString())) {
-//
-//        }
+        presenter.login(presenter.validUsername(editName.getText().toString()), editSenha.getText().toString());
+
     }
 
     @Override

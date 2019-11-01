@@ -52,29 +52,6 @@ public class Home extends Fragment {
 
     }
 
-    public void filter(String nome) {
-        ArrayList<Animal> filterList = new ArrayList<>();
-        if(adapter != null) {
-            for (Animal animal : animalList) {
-                if (animal.getName().toLowerCase().contains(nome.toLowerCase())) {
-                    filterList.add(animal);
-                } else if (animal.getBreed().toLowerCase().contains(nome.toLowerCase())) {
-                    filterList.add(animal);
-                }
-            }
-            if (filterList == null) {
-                adapter.filterList(animalList);
-                configAdapter(adapter);
-            } else {
-                adapter.filterList(filterList);
-                configAdapter(adapter);
-            }
-        }
-    }
-
-
-
-
     private void getAnimals() {
         LoginServices services = new RetrofitClient().getRetrofit();
         services.getAnimals().enqueue(new Callback<List<Animal>>() {

@@ -1,10 +1,13 @@
 package com.example.testeemjava.fragments;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -48,7 +51,13 @@ public class Menu extends Fragment {
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "clicou em sair", Toast.LENGTH_SHORT).show();
+                Dialog dialog = new Dialog (getContext(), R.style.CustomAlertDialog);
+                dialog.requestWindowFeature (Window.FEATURE_NO_TITLE);
+                dialog.setContentView (layout);
+                dialog.setCancelable (false);
+                dialog.getWindow ().setSoftInputMode (WindowManager.LayoutParams.
+                        SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+                dialog.show();
             }
         });
 

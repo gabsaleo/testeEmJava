@@ -20,28 +20,6 @@
         app:srcCompat="@drawable/doguineo" />
 
     <TextView
-        android:id="@+id/textEmailContato"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="12dp"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textNameContato" />
-
-    <TextView
-        android:id="@+id/textTelefoneContato"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="52dp"
-        android:text="Telefone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textEmailContato"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
         android:id="@+id/textContato"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,16 +33,36 @@
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
+        android:id="@+id/textTelefoneContato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="68dp"
+        android:text="Telefone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
         android:id="@+id/textNameContato"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginBottom="44dp"
+        android:layout_marginTop="15dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textContato"
-        app:layout_constraintVertical_bias="0.333" />
+        app:layout_constraintTop_toBottomOf="@+id/textContato" />
+
+    <TextView
+        android:id="@+id/textEmailContato"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/textTelefoneContato"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textNameContato"
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageView
         android:id="@+id/imageVoltar"
@@ -77,21 +75,10 @@
         app:srcCompat="@drawable/ic_action_navigation_arrow_back" />
 
     <TextView
-        android:id="@+id/textTexto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="192dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.366"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageDetailsPet" />
-
-    <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="Nome:"
         android:textStyle="bold"
@@ -157,7 +144,7 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:text="Cor:"
         android:textStyle="bold"
@@ -168,7 +155,7 @@
         android:id="@+id/corPetDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="12dp"
         android:text="cor"
         app:layout_constraintStart_toEndOf="@+id/textView6"
@@ -189,7 +176,7 @@
         android:id="@+id/generoPetDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="12dp"
         android:text="genero"
         app:layout_constraintStart_toEndOf="@+id/textView7"
@@ -210,11 +197,11 @@
         android:id="@+id/tipoPetDetails"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="12dp"
         android:text="tipoPet"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.021"
         app:layout_constraintStart_toEndOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/racaPetDetails" />
 
@@ -225,6 +212,7 @@
         android:layout_marginTop="12dp"
         android:text="textoCheckBox"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/generoPetDetails" />
 
@@ -255,7 +243,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
-        android:text="Tipo de pêlo:"
+        android:text="Tipo de pelo:"
         android:textStyle="bold"
         app:layout_constraintStart_toEndOf="@+id/tamanhoPetDetails"
         app:layout_constraintTop_toBottomOf="@+id/textoCheckBox" />

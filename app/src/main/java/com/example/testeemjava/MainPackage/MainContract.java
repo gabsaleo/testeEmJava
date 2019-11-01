@@ -8,11 +8,6 @@ public class MainContract {
 
     public interface View{
 
-        void showFragment(Fragment fragment);
     }
-    public interface Presenter{
 
-        void identifyItemClicked(MenuItem menuItem);
-
-    }
 }

@@ -18,22 +18,13 @@ public class DetailsPetActivity extends AppCompatActivity {
 
     TextView NomeContato, emailContato, texto, telefone, nomePet, IdadePet, RacaPet, corPet,
             generoPet, tipoPetDetails, textoCheckBox, tamanhoPetDetails, pelosPetDetails, recomendadoPetDetails;
-    ImageView imagemPetDetails, imageEditar;
+    ImageView imagemPetDetails;
     ImageView imageVoltar;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailspet);
-
-        String substantivo = "";
-        String pronome = "";
-        String Este = "";
-        String substantivoMin = "";
-        String pronomeMin = "";
-        String um = "";
-
-
 
         imagemPetDetails = findViewById(R.id.imageDetailsPet);
         imageVoltar = findViewById(R.id.imageVoltar);
@@ -50,9 +41,13 @@ public class DetailsPetActivity extends AppCompatActivity {
         tipoPetDetails = findViewById(R.id.tipoPetDetails);
         tamanhoPetDetails = findViewById(R.id.tamanhoPetDetails);
         textoCheckBox = findViewById(R.id.textoCheckBox);
-        texto = findViewById(R.id.textTexto);
 
-        
+        imageVoltar.setOnClickListener(v -> {
+            Intent intent = new Intent(DetailsPetActivity.this, MainActivity.class);
+            finish();
+            startActivity(intent);
+
+        });
 
         Bundle bundle = getIntent().getExtras();
         if (getIntent().hasExtra("animal")) {
@@ -81,104 +76,75 @@ public class DetailsPetActivity extends AppCompatActivity {
             Picasso.get().load(url).noFade().into(imagemPetDetails);
 
             if (("M").equals(genero)) {
-                genero = (" macho");
+                genero = ("Macho");
             } else {
-                genero = (" femea");
+                genero = ("Femea");
             }
 
 
-            if (("DOG").equals(tipoPet) && (" macho").equals(genero)) {
-                tipoPet = " cachorro";
+            if (("DOG").equals(tipoPet) ){
+                tipoPet = "Cachorro";
             }
-            if (("CAT").equals(tipoPet) && (" macho").equals(genero)) {
-                tipoPet = " gato";
-            }
-            if (("DOG").equals(tipoPet) && (" femea").equals(genero)) {
-                tipoPet = " cadela";
-            }
-            if (("CAT").equals(tipoPet) && (" femea").equals(genero)) {
-                tipoPet = " gata";
+            if (("CAT").equals(tipoPet) ){
+                tipoPet = "Gato";
             }
 
-            if (("SMALL").equals(tamanho) && (" macho").equals(genero)) {
-                tamanho = "pequeno";
+
+            if (("SMALL").equals(tamanho)) {
+                tamanho = "Pequeno";
             }
-            if (("MEDIUM").equals(tamanho) && (" macho").equals(genero)) {
-                tamanho = "medio";
-            }
-            if (("SMALL").equals(tamanho) && (" femea").equals(genero)) {
-                tamanho = "pequena";
-            }
-            if (("MEDIUM").equals(tamanho) && (" femea").equals(genero)) {
-                tamanho = "media";
+            if (("MEDIUM").equals(tamanho)) {
+                tamanho = "Medio";
             }
             if (("LARGE").equals(tamanho)) {
-                tamanho = "grande";
+                tamanho = "Grande";
             }
             if (("XL").equals(tamanho)) {
-                tamanho = "gigante";
+                tamanho = "Gigante";
             }
 
 
             if (("HAIRLESS").equals(pelos)) {
-                pelos = "sem pelo";
+                pelos = "Sem pelo";
             }
             if (("SHORT").equals(pelos)) {
-                pelos = "curto";
+                pelos = "Curto";
             }
             if (("MEDIUM").equals(pelos)) {
-                pelos = "medio";
+                pelos = "Medio";
             }
             if (("LONG").equals(pelos)) {
-                pelos = "longo";
+                pelos = "Longo";
             }
 
             if (("KIDS").equals(recomendado)) {
-                recomendado = "para crianças";
+                recomendado = "Para crianças";
             }
             if (("DEFICIENT").equals(recomendado)) {
-                recomendado = "para deficientes visuais";
+                recomendado = "Para deficientes visuais";
             }
             if (("OLD_MAN").equals(recomendado)) {
-                recomendado = "para idosos";
+                recomendado = "Para idosos";
             }
             if (("ALL").equals(recomendado)) {
-                recomendado = "para todos";
+                recomendado = "Para todos";
             }
 
 
             if (("false").equals(possuiDoenca)) {
-                possuiDoenca = (" nao possui doença");
+                possuiDoenca = ("não possui doença");
             } else {
-                possuiDoenca = (" possui doença");
+                possuiDoenca = ("Possui doença");
             }
 
             if (("false").equals(vacinado)) {
-                vacinado = (" nao é vacinado");
+                vacinado = ("Não é vacinado");
             } else {
-                vacinado = (" é vacinado");
+                vacinado = ("É vacinado");
             }
             if (("").equals(raca) || idade.equals("0")) {
-                raca = ("A raça nao foi informada");
-                idade = ("A idade nao foi informada");
-            }
-            if ((" macho").equals(genero)) {
-                substantivo = "O ";
-                pronome = "Ele ";
-                Este = "Este ";
-                substantivoMin = "o ";
-                pronomeMin = "ele ";
-                um = " um ";
-
-            }
-            if ((" femea").equals(genero)) {
-                substantivo = "A ";
-                pronome = "Ela ";
-                Este = "Esta ";
-                substantivoMin = "a ";
-                pronomeMin = "ela ";
-                um = " uma ";
-
+                raca = ("-");
+                idade = ("-");
             }
 
             nomePet.setText(namePet);
@@ -192,14 +158,9 @@ public class DetailsPetActivity extends AppCompatActivity {
             pelosPetDetails.setText(pelos);
             recomendadoPetDetails.setText(recomendado);
 
-//            texto.setText(Este + " é " + substantivoMin + namePet + ". " +
-//                    pronome + " tem " + idade + " anos" + " é" + um + tipoPet + genero +
-//                    " e é da raça " + raca + ". " + pronome + vacinado
-//                    + " e" + possuiDoenca + ", " + pronomeMin + "é " + tamanho + ", "
-//                    + "tem a pelagem " + pelos + ", possui a cor " + cor + ", e é recomendado " + recomendado + ".");
 
 
-        } //String url = idade.getText().toString();
+        }
 
 
         }

@@ -43,11 +43,9 @@ public class AddPet extends Fragment {
     MainContract.View viewContract;
     String tamanhoText, pelosText, recomendadoText, tipoPetText, generoText;
 
-    boolean txt = false;
     private View view;
     private EditText editRaca, editCorPet, editNamePet, editIdade, editDescricaoPet, editSanguineo,
             editURL;
-    List<SpinnerAddPet> result = new ArrayList<>();
 
     List<String> tamanho = new ArrayList<>();
     List<String> pelos = new ArrayList<>();
@@ -55,10 +53,11 @@ public class AddPet extends Fragment {
     List<String> tipoPet = new ArrayList<>();
     List<String> genero = new ArrayList<>();
 
-
     private Spinner spinnerPorte,spinnerGenero, spinnerPelagem, spinnerRecomendado, spinnerTipoPet;
     private CheckBox checkPossuiDoenca, checkVacinado;
     private Button botaoSalvarCriarPet;
+
+    private AddPetContract.Presenter petPresenter;
 
     public AddPet(MainContract.View viewContract) {
         this.viewContract = viewContract;
@@ -67,55 +66,20 @@ public class AddPet extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         view = inflater.inflate(R.layout.fragment_add_pet, container, false);
-
-
-
-
         loadUI();
         getSelectedSpinners();
-//        editIdade.addTextChangedListener(MaskEditUtil.mask(editIdade, MaskEditUtil.FORMAT_DATE));
-
-        checkPossuiDoenca.setOnClickListener(v -> {
-            if(checkPossuiDoenca.isChecked()){
-                Toast.makeText(getContext(), "Escolheu o " +checkPossuiDoenca.getText(), Toast.LENGTH_SHORT).show();
-                txt = true;
-                Log.d("foi", "true");
-
-            }else{
-                Toast.makeText(getContext(), "Deselecionado " +checkPossuiDoenca.getText(), Toast.LENGTH_SHORT).show();
-                txt = false;
-                Log.d("foi", "false");
-            }
-
-
-        });
-
-        checkVacinado.setOnClickListener(v -> {
-            if(checkVacinado.isChecked()){
-                Toast.makeText(getContext(), "Escolheu o " +checkVacinado.getText(), Toast.LENGTH_SHORT).show();
-                txt = true;
-                Log.d("foi", "true");
-            }else{
-                Toast.makeText(getContext(), "Deselecionado" +checkVacinado.getText(), Toast.LENGTH_SHORT).show();
-                txt = false;
-                Log.d("foi", "false");
-            }
-        });
-
-
-
         addPet();
 
 
 
-        return view;
 
+        return view;
     }
 
     private void addPet() {
         botaoSalvarCriarPet.setOnClickListener(v -> {
-
             UserDTO userDTO = new UserDTO();
             userDTO.setId(AppPet.getUserDTO().getId());
 
@@ -147,8 +111,6 @@ public class AddPet extends Fragment {
                 Log.d("erro" , t.getMessage());
             }
         });
-
-
         });
     }
 

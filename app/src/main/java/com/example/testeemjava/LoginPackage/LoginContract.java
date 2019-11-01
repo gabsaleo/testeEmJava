@@ -24,7 +24,7 @@ public class LoginContract {
 
         void login(String username, String password);
 
-        boolean validUsername(String user);
+        String validUsername(String user);
 
         boolean validPassword(String password);
     }

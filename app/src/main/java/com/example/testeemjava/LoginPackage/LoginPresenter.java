@@ -61,7 +61,7 @@ public class LoginPresenter implements LoginContract.Presenter {
         }
 
     @Override
-    public boolean validUsername(String username) {
+    public String validUsername(String username) {
         if (!username.matches("[a-zA-Z0-9\\+\\.\\_\\%\\-\\+]{1,256}" + // regex para a validação de email
                 "\\@" +
                 "[a-zA-Z0-9][a-zA-Z0-9\\-]{0,64}" +
@@ -72,11 +72,9 @@ public class LoginPresenter implements LoginContract.Presenter {
             view.errorUsername("Email inválido");//se a validação falhar, essa mensagem de erro aparecerá para o usuário
 
             view.enableButton(false);//se a validação falhar, o botão de "Login" é desabilitado
-            return false;
         }
         view.enableButton(true);//se a validação for OK, o botão de "Login" é habilitado
-
-        return true;
+        return username;
     }
 
     @Override
