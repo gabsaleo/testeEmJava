@@ -16,7 +16,8 @@ import com.squareup.picasso.Picasso;
 
 public class DetailsPetActivity extends AppCompatActivity {
 
-    TextView NomeContato, emailContato, texto, telefone, nomePet, IdadePet, RacaPet, corPet;
+    TextView NomeContato, emailContato, texto, telefone, nomePet, IdadePet, RacaPet, corPet,
+            generoPet, tipoPetDetails, textoCheckBox, tamanhoPetDetails, pelosPetDetails, recomendadoPetDetails;
     ImageView imagemPetDetails, imageEditar;
     ImageView imageVoltar;
 
@@ -41,8 +42,14 @@ public class DetailsPetActivity extends AppCompatActivity {
         telefone = findViewById(R.id.textTelefoneContato);
         nomePet = findViewById(R.id.nomePetDetails);
         IdadePet = findViewById(R.id.idadePetDetails);
+        recomendadoPetDetails = findViewById(R.id.recomendadoPetDetails);
         corPet = findViewById(R.id.corPetDetails);
+        pelosPetDetails = findViewById(R.id.pelosPetDetails);
+        generoPet = findViewById(R.id.generoPetDetails);
         RacaPet = findViewById(R.id.racaPetDetails);
+        tipoPetDetails = findViewById(R.id.tipoPetDetails);
+        tamanhoPetDetails = findViewById(R.id.tamanhoPetDetails);
+        textoCheckBox = findViewById(R.id.textoCheckBox);
         texto = findViewById(R.id.textTexto);
 
         
@@ -178,11 +185,18 @@ public class DetailsPetActivity extends AppCompatActivity {
             IdadePet.setText(idade);
             RacaPet.setText(raca);
             corPet.setText(cor);
-            texto.setText(Este + " é " + substantivoMin + namePet + ". " +
-                    pronome + " tem " + idade + " anos" + " é" + um + tipoPet + genero +
-                    " e é da raça " + raca + ". " + pronome + vacinado
-                    + " e" + possuiDoenca + ", " + pronomeMin + "é " + tamanho + ", "
-                    + "tem a pelagem " + pelos + ", possui a cor " + cor + ", e é recomendado " + recomendado + ".");
+            generoPet.setText(genero);
+            tipoPetDetails.setText(tipoPet);
+            tamanhoPetDetails.setText(tamanho);
+            textoCheckBox.setText(vacinado + " e " + possuiDoenca);
+            pelosPetDetails.setText(pelos);
+            recomendadoPetDetails.setText(recomendado);
+
+//            texto.setText(Este + " é " + substantivoMin + namePet + ". " +
+//                    pronome + " tem " + idade + " anos" + " é" + um + tipoPet + genero +
+//                    " e é da raça " + raca + ". " + pronome + vacinado
+//                    + " e" + possuiDoenca + ", " + pronomeMin + "é " + tamanho + ", "
+//                    + "tem a pelagem " + pelos + ", possui a cor " + cor + ", e é recomendado " + recomendado + ".");
 
 
         } //String url = idade.getText().toString();
