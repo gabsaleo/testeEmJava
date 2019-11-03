@@ -41,7 +41,7 @@ public class Menu extends Fragment {
         Estado = view.findViewById(R.id.textEstado);
 
 
-
+    try {
         textViewNome.setText(AppPet.getUserDTO().getName());
         textEmail.setText(AppPet.getUserDTO().getEmail());
         textTelefone.setText(AppPet.getUserDTO().getPhone());
@@ -50,6 +50,8 @@ public class Menu extends Fragment {
         Bairro.setText(AppPet.getUserDTO().getAddress().getDistrict());
         Cidade.setText(AppPet.getUserDTO().getAddress().getCity());
         Estado.setText(AppPet.getUserDTO().getAddress().getState());
+    }catch (Exception e){ e.printStackTrace();}
+
         botaoSair.setOnClickListener(v -> {
 
             Dialog dialog = new Dialog (getContext(), R.style.CustomAlertDialog);
