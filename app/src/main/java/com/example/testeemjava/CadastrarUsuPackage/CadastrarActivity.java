@@ -16,7 +16,7 @@ import android.widget.Toast;
 import com.example.testeemjava.LoginPackage.LoginActivity;
 import com.example.testeemjava.Others.MaskEditUtil;
 import com.example.testeemjava.R;
-import com.example.testeemjava.Model.UserDTO;
+import com.example.testeemjava.model.UserDTO;
 
 public class CadastrarActivity extends AppCompatActivity implements CadastrarContract.View {
 
@@ -142,30 +142,30 @@ public class CadastrarActivity extends AppCompatActivity implements CadastrarCon
 
 
     }
-    private void atualizar(){
-
-            editSenha.setVisibility(View.INVISIBLE);
-            UserDTO userDTO = (UserDTO) getIntent().getSerializableExtra("user");
-            userDTO.setId(userDTO.getId());
-            editNome.setText(userDTO.getName());
-            editEmail.setText(userDTO.getEmail());
-            button.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(CadastrarActivity.this, "foi", Toast.LENGTH_SHORT).show();
-                }
-            });
-//            editTelefone.setText(AppPet.getUserDTO().getPhone());
-//            editRua.setText(AppPet.getUserDTO().getAddress().getStreet());
-//            editNro.setText(AppPet.getUserDTO().getAddress().getNumber());
-//            editCidade.setText(AppPet.getUserDTO().getAddress().getCity());
-//            editEstado.setText(AppPet.getUserDTO().getAddress().getState());
-//            editPais.setText(AppPet.getUserDTO().getAddress().getCountry());
-//            editLogradouro.setText(AppPet.getUserDTO().getAddress().getComplements());
-//            editBairro.setText(AppPet.getUserDTO().getAddress().getDistrict());
-
-
-    }
+//    private void atualizar(){
+//
+//            editSenha.setVisibility(View.INVISIBLE);
+//            UserDTO userDTO = (UserDTO) getIntent().getSerializableExtra("user");
+//            userDTO.setId(userDTO.getId());
+//            editNome.setText(userDTO.getName());
+//            editEmail.setText(userDTO.getEmail());
+//            button.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Toast.makeText(CadastrarActivity.this, "foi", Toast.LENGTH_SHORT).show();
+//                }
+//            });
+////            editTelefone.setText(AppPet.getUserDTO().getPhone());
+////            editRua.setText(AppPet.getUserDTO().getAddress().getStreet());
+////            editNro.setText(AppPet.getUserDTO().getAddress().getNumber());
+////            editCidade.setText(AppPet.getUserDTO().getAddress().getCity());
+////            editEstado.setText(AppPet.getUserDTO().getAddress().getState());
+////            editPais.setText(AppPet.getUserDTO().getAddress().getCountry());
+////            editLogradouro.setText(AppPet.getUserDTO().getAddress().getComplements());
+////            editBairro.setText(AppPet.getUserDTO().getAddress().getDistrict());
+//
+//
+//    }
 
     @Override
     public Context getContext() {

@@ -22,14 +22,14 @@ import com.example.testeemjava.Infra.LoginServices;
 import com.example.testeemjava.R;
 import com.example.testeemjava.Infra.RetrofitClient;
 import com.example.testeemjava.MainPackage.MainActivity;
+import com.example.testeemjava.model.Animal;
 import com.example.testeemjava.model.Enums.CoatLength;
 import com.example.testeemjava.model.Enums.Genre;
 import com.example.testeemjava.model.Enums.PetRecommendedTo;
 import com.example.testeemjava.model.Enums.PetSize;
 import com.example.testeemjava.model.Enums.PetType;
-import com.example.testeemjava.Model.Animal;
-import com.example.testeemjava.Model.SpinnerAddPet;
-import com.example.testeemjava.Model.UserDTO;
+import com.example.testeemjava.model.SpinnerAddPet;
+import com.example.testeemjava.model.UserDTO;
 
 import java.util.ArrayList;
 import java.util.List;

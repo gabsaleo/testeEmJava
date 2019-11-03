@@ -2,7 +2,7 @@ package com.example.testeemjava.Others;
 
 import android.app.Application;
 
-import com.example.testeemjava.Model.UserDTO;
+import com.example.testeemjava.model.UserDTO;
 
 public class AppPet extends Application {
 

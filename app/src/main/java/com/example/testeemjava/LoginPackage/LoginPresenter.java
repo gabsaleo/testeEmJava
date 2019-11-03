@@ -7,8 +7,8 @@ import com.example.testeemjava.Others.AppPet;
 import com.example.testeemjava.LoginPackage.LoginContract;
 import com.example.testeemjava.Infra.LoginServices;
 import com.example.testeemjava.Infra.RetrofitClient;
-import com.example.testeemjava.Model.User;
-import com.example.testeemjava.Model.UserDTO;
+import com.example.testeemjava.model.User;
+import com.example.testeemjava.model.UserDTO;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -42,8 +42,14 @@ public class LoginPresenter implements LoginContract.Presenter {
                         Log.d("body", body.toString());
                         view.navigateToList();
                         view.finalizarActivity();
-
-
+                    }
+                    if(response.code() == 400 || response.code() == 401 || response.code() == 403){
+                        view.showProgress(false);
+                        Toast.makeText(view.getContext(), "Email ou senha estão incorretos. Tente novamente.", Toast.LENGTH_SHORT).show();
+                    }
+                    if(response.code() == 500 || response.code() == 501 || response.code() == 502 || response.code() == 503){
+                        view.showProgress(false);
+                        Toast.makeText(view.getContext(), "Falha na conexão com o servidor. Tente novamente mais tarde.", Toast.LENGTH_SHORT).show();
                     }
                 }
 

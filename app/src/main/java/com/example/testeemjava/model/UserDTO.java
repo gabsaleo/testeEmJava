@@ -1,6 +1,7 @@
-package com.example.testeemjava.Model;
+package com.example.testeemjava.model;
 
 import java.io.Serializable;
+import com.example.testeemjava.model.Address;
 
 public class UserDTO implements Serializable {
 
@@ -18,7 +19,7 @@ public class UserDTO implements Serializable {
 
     private String userType;
 
-    private  Address address;
+    private Address address;
 
     public UserDTO(Integer id, String name,
     String password, String creationDate,

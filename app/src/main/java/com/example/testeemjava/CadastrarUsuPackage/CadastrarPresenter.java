@@ -5,8 +5,8 @@ import android.widget.Toast;
 
 import com.example.testeemjava.Infra.LoginServices;
 import com.example.testeemjava.Infra.RetrofitClient;
-import com.example.testeemjava.Model.Address;
-import com.example.testeemjava.Model.User;
+import com.example.testeemjava.model.Address;
+import com.example.testeemjava.model.User;
 
 import retrofit2.Call;
 import retrofit2.Callback;

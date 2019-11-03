@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.testeemjava.R;
 import com.example.testeemjava.DetailsPackage.DetailsPetActivity;
-import com.example.testeemjava.Model.Animal;
+import com.example.testeemjava.model.Animal;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

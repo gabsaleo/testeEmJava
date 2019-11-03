@@ -15,7 +15,7 @@ import com.example.testeemjava.HomePackage.adapter.Adapter;
 import com.example.testeemjava.Infra.LoginServices;
 import com.example.testeemjava.Infra.RetrofitClient;
 import com.example.testeemjava.R;
-import com.example.testeemjava.Model.Animal;
+import com.example.testeemjava.model.Animal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,11 +32,6 @@ public class Home extends Fragment {
     private View view;
     public Animal animal;
     private RecyclerView recyclerView;
-    MainContract.View viewContract;
-
-    public Home(MainContract.View viewContract) {
-        this.viewContract = viewContract;
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -53,26 +48,30 @@ public class Home extends Fragment {
     }
 
     private void getAnimals() {
-        LoginServices services = new RetrofitClient().getRetrofit();
-        services.getAnimals().enqueue(new Callback<List<Animal>>() {
-            @Override
-            public void onResponse(Call<List<Animal>> call, Response<List<Animal>> response) {
+        try {
+            LoginServices services = new RetrofitClient().getRetrofit();
+            services.getAnimals().enqueue(new Callback<List<Animal>>() {
+                @Override
+                public void onResponse(Call<List<Animal>> call, Response<List<Animal>> response) {
 
-                animalList = (ArrayList<Animal>) response.body();
-                for (Animal a : animalList){
-                    Log.d("uhu", a.urlImage);
+                    animalList = (ArrayList<Animal>) response.body();
+                    for (Animal a : animalList) {
+                        Log.d("uhu", a.urlImage);
+                    }
+                    configAdapter(adapter);
+
+
                 }
-                configAdapter(adapter);
 
+                @Override
+                public void onFailure(Call<List<Animal>> call, Throwable t) {
 
-            }
+                }
 
-            @Override
-            public void onFailure(Call<List<Animal>> call, Throwable t) {
-
-            }
-
-        });
+            });
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
 
     }

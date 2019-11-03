@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        showFragment(new Home(this));
+        showFragment(new Home());
         bottomNavigationView = findViewById(R.id.bottom_navigation);
        bottomNavigationView.setOnNavigationItemSelectedListener( menuItem -> {
             identifyItemClicked(menuItem);
@@ -46,14 +46,14 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
         switch(menuItem.getItemId()){
 
             case(R.id.ic_home):
-                showFragment(new Home(this));
+                showFragment(new Home());
                 break;
             case(R.id.ic_add_pet):
                 showFragment(new AddPet(this));
                 break;
 
             case(R.id.ic_search):
-                showFragment(new Search(this));
+                showFragment(new Search());
                 break;
 
             case(R.id.ic_menu):

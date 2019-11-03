@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.testeemjava.MainPackage.MainContract;
 import com.example.testeemjava.R;
 import com.example.testeemjava.HomePackage.adapter.Adapter;
-import com.example.testeemjava.Model.Animal;
+import com.example.testeemjava.model.Animal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,13 +29,7 @@ public class Search extends Fragment implements SearchContract.View {
     RecyclerView recyclerView;
     SearchContract.Presenter presenter;
     private Adapter mAdapter;
-    MainContract.View viewContract;
     private RecyclerView.LayoutManager mLayoutManager;
-
-    public Search(MainContract.View viewContract) {
-        this.viewContract = viewContract;
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

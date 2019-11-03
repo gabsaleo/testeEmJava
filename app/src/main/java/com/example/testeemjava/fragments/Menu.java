@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,8 +22,10 @@ import com.example.testeemjava.CadastrarUsuPackage.CadastrarActivity;
 public class Menu extends Fragment {
 
     private View view;
-    private TextView textViewNome, textEmail, textTelefone, Rua, Nro, Bairro, Cidade, Estado;
-    private Button botaoSair, botaoAlterar;
+    private TextView textViewNome, textEmail, textTelefone, Rua, Nro, Bairro, Cidade, Estado,textHelp;
+    private Button botaoSair, button_dialog_chooser_yes, button_dialog_chooser_no;
+    private ImageView imagemHelp;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,18 +50,24 @@ public class Menu extends Fragment {
         Bairro.setText(AppPet.getUserDTO().getAddress().getDistrict());
         Cidade.setText(AppPet.getUserDTO().getAddress().getCity());
         Estado.setText(AppPet.getUserDTO().getAddress().getState());
-        botaoSair.setOnClickListener(new View.OnClickListener() {
+        botaoSair.setOnClickListener(v -> {
 
-            @Override
-            public void onClick(View v) {
-                Dialog dialog = new Dialog (getContext(), R.style.CustomAlertDialog);
-                dialog.requestWindowFeature (Window.FEATURE_NO_TITLE);
-                dialog.setContentView (layout);
-                dialog.setCancelable (false);
-                dialog.getWindow ().setSoftInputMode (WindowManager.LayoutParams.
-                        SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-                dialog.show();
-            }
+            Dialog dialog = new Dialog (getContext(), R.style.CustomAlertDialog);
+            dialog.requestWindowFeature (Window.FEATURE_NO_TITLE);
+            dialog.setContentView (R.layout.dialog_choose);
+            dialog.setCancelable (false);
+            dialog.getWindow ().setSoftInputMode (WindowManager.LayoutParams.
+                    SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+            dialog.show();
+
+            button_dialog_chooser_yes = dialog.findViewById(R.id.button_dialog_chooser_yes);
+            button_dialog_chooser_no = dialog.findViewById(R.id.buttton_dialog_chooser_no);
+            button_dialog_chooser_yes.setOnClickListener(v1 -> {
+                getActivity().finish();
+            });
+            button_dialog_chooser_no.setOnClickListener( v2 -> {
+                dialog.dismiss();
+            });
         });
 
 //        Bundle bundle = new Bundle();

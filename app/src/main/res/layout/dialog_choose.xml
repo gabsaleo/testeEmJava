@@ -14,7 +14,7 @@
         android:layout_marginEnd="57dp"
         android:layout_marginBottom="104dp"
         android:gravity="center"
-        android:text="Deseja sair?"
+        android:text="Deseja sair da aplicação?"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

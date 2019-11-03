@@ -1,8 +1,8 @@
 package com.example.testeemjava.Infra;
 
-import com.example.testeemjava.Model.UserDTO;
-import com.example.testeemjava.Model.Animal;
-import com.example.testeemjava.Model.User;
+import com.example.testeemjava.model.UserDTO;
+import com.example.testeemjava.model.Animal;
+import com.example.testeemjava.model.User;
 
 import java.util.List;
 

@@ -17,7 +17,7 @@ import com.example.testeemjava.Infra.RetrofitClient;
 import com.example.testeemjava.MainPackage.MainActivity;
 import com.example.testeemjava.R;
 import com.example.testeemjava.CadastrarUsuPackage.CadastrarActivity;
-import com.example.testeemjava.Model.User;
+import com.example.testeemjava.model.User;
 
 import java.util.ArrayList;
 import java.util.List;
