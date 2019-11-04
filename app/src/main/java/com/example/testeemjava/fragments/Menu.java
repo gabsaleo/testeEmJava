@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.testeemjava.LoginPackage.LoginActivity;
 import com.example.testeemjava.Others.AppPet;
 import com.example.testeemjava.R;
 import com.example.testeemjava.CadastrarUsuPackage.CadastrarActivity;
@@ -53,7 +54,6 @@ public class Menu extends Fragment {
     }catch (Exception e){ e.printStackTrace();}
 
         botaoSair.setOnClickListener(v -> {
-
             Dialog dialog = new Dialog (getContext(), R.style.CustomAlertDialog);
             dialog.requestWindowFeature (Window.FEATURE_NO_TITLE);
             dialog.setContentView (R.layout.dialog_choose);
@@ -65,8 +65,9 @@ public class Menu extends Fragment {
             button_dialog_chooser_yes = dialog.findViewById(R.id.button_dialog_chooser_yes);
             button_dialog_chooser_no = dialog.findViewById(R.id.buttton_dialog_chooser_no);
             button_dialog_chooser_yes.setOnClickListener(v1 -> {
-                getActivity().finish();
-                getActivity().finish();
+                Intent intenr = new Intent(getContext(), LoginActivity.class);
+                startActivity(intenr);
+                getActivity().finishAffinity();
             });
             button_dialog_chooser_no.setOnClickListener( v2 -> {
                 dialog.dismiss();

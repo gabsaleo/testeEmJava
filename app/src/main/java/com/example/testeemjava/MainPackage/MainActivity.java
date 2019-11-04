@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
        bottomNavigationView.setOnNavigationItemSelectedListener( menuItem -> {
             identifyItemClicked(menuItem);
             return true;
+
        });
 
 
@@ -48,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             case(R.id.ic_home):
                 showFragment(new Home());
                 break;
+
             case(R.id.ic_add_pet):
                 showFragment(new AddPet(this));
                 break;
@@ -59,8 +61,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.View
             case(R.id.ic_menu):
                 showFragment(new Menu());
                 break;
-
-
         }
     }
 

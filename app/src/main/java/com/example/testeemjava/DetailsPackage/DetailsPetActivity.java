@@ -1,6 +1,7 @@
 package com.example.testeemjava.DetailsPackage;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -46,6 +47,7 @@ public class DetailsPetActivity extends AppCompatActivity {
             Intent intent = new Intent(DetailsPetActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
+
 
         });
 
