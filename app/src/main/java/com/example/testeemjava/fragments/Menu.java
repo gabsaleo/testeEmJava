@@ -66,6 +66,7 @@ public class Menu extends Fragment {
             button_dialog_chooser_no = dialog.findViewById(R.id.buttton_dialog_chooser_no);
             button_dialog_chooser_yes.setOnClickListener(v1 -> {
                 getActivity().finish();
+                getActivity().finish();
             });
             button_dialog_chooser_no.setOnClickListener( v2 -> {
                 dialog.dismiss();

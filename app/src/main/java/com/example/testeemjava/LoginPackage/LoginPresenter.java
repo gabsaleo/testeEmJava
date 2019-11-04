@@ -36,21 +36,21 @@ public class LoginPresenter implements LoginContract.Presenter {
                 public void onResponse(Call<UserDTO> call, Response<UserDTO> response) {
                     if (response.code() == 200) {
                         view.showProgress(false);
-//                        view.enableButton(true);
                         UserDTO body = response.body();
                         AppPet.setUserDTO(body);
                         Log.d("body", body.toString());
                         view.navigateToList();
                         view.finalizarActivity();
                     }
-                    if(response.code() == 400 || response.code() == 401 || response.code() == 403){
+                    if( response.code() == 204||response.code() == 400 || response.code() == 401 || response.code() == 402 ||response.code() == 403){
                         view.showProgress(false);
-                        Toast.makeText(view.getContext(), "Email ou senha estão incorretos. Tente novamente.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), "Email ou senha estão incorretos, ou usuário não está cadastrado. Tente novamente.", Toast.LENGTH_LONG).show();
                     }
-                    if(response.code() == 500 || response.code() == 501 || response.code() == 502 || response.code() == 503){
+                    if(response.code() == 500 ||response.code() == 501 || response.code() == 502 || response.code() == 503){
                         view.showProgress(false);
-                        Toast.makeText(view.getContext(), "Falha na conexão com o servidor. Tente novamente mais tarde.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(view.getContext(), "Falha na conexão com o servidor. Tente novamente mais tarde.", Toast.LENGTH_LONG).show();
                     }
+                    Log.d("code", String.valueOf(response.code()));
                 }
 
                 @Override

@@ -25,7 +25,7 @@ public class CadastrarPresenter implements CadastrarContract.Presenter {
                                  String rua, String nro, String cidade, String estado,
                                  String pais, String logradouro, String bairro) {
         User user = new User(null, nome, email, password, phone,
-                new Address(rua, nro, cidade, estado, cidade, logradouro, bairro));
+                new Address(rua, nro, cidade, estado, pais, logradouro, bairro));
 
         LoginServices services = new RetrofitClient().getRetrofit();
         view.showProgress(false);
